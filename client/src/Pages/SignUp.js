@@ -1,13 +1,15 @@
 import React, { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { CurrentUserContext } from "../Context/CurrentUserContext";
 import styled from "styled-components";
+import { UserContext } from "../Context/UserContext";
 
 const SignUp = () => {
   const { state } = useLocation();
+
   const {
-    actions: { addNewUser },
-  } = useContext(CurrentUserContext);
+    actions: { addUser },
+  } = useContext(UserContext);
+
   const navigate = useNavigate();
 
   /**
@@ -17,20 +19,22 @@ const SignUp = () => {
    */
   const handleClick = (e) => {
     e.preventDefault();
-    navigate("/confirmed");
+    navigate("/SignIn");
     const newUser = {
-      
-      name: e.target[0].value,
-      city: e.target[1].value,
-      email: e.target[2].value,
+      firstName: e.target[0].value,
+      lastName: e.target[1].value,
+      location: e.target[2].value,
+      email: e.target[3].value,
+      bio: e.target[4].value,
+      statement: e.target[5].value,
     };
-    addNewUser(newUser);
+    addUser(newUser);
   };
 
   /**
    * Deletes all the items in the cart
    */
-  // const handleDeleteCartItems = () => {
+  // const handleAddUser = () => {
   //     fetch("/api/cart/delete-all", {
   //         method: "DELETE",
   //         headers: {
@@ -43,9 +47,12 @@ const SignUp = () => {
     <Position onSubmit={handleClick}>
       <H1>Enter Account Information</H1>
       <Contain>
-        <Input type="text" placeholder="Name" required />
-        <Input type="text" placeholder="City" required />
+        <Input type="text" placeholder="First Name" required />
+        <Input type="text" placeholder="Last Name" required />
+        <Input type="text" placeholder="City Location" required />
         <Input type="email" placeholder="Email" required />
+        <Input type="text" placeholder="Bio" required />
+        <Input type="text" placeholder="Teaching Statement" required />
         <Submit type="submit" value="Confirm Sign-Up" />
       </Contain>
     </Position>

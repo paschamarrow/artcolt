@@ -54,34 +54,6 @@ const getUser = async (req, res) => {
   client.close();
 };
 
-// // returns all reservations -- are profiles differnt than users?
-// const getReservations = async (req, res) => {
-//   const client = new MongoClient(MONGO_URI, options);
-//   await client.connect();
-//   const db = client.db("SlingAir");
-//   const data = await db.collection("reservations").find().toArray();
-//   data
-//     ? res.status(200).json({ status: 200, data: data, message: "success" })
-//     : res
-//         .status(404)
-//         .json({ status: 404, data: data, message: "Nothing found" });
-//   client.close();
-// };
-
-// returns a single reservation
-// const getSingleReservation = async (req, res) => {
-//   //url param being stored into reservation id
-//   const _id = req.params.reservation;
-
-//   const client = new MongoClient(MONGO_URI, options);
-//   await client.connect();
-//   const db = client.db("SlingAir");
-//   const data = await db.collection("reservations").findOne({ _id });
-//   data
-//     ? res.status(200).json({ status: 200, data: data, message: "success" })
-//     : res.status(404).json({ status: 404, data: data, message: "Not Found" });
-//   client.close();
-// };
 
 // creates a new user
 const addUser = async (req, res) => {

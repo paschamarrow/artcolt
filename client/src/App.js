@@ -9,7 +9,7 @@ import styled from "styled-components";
 import HomePage from "./Pages/HomePage";
 import Footer from "./Components/Footer";
 import { useContext, useEffect } from "react";
-import { CurrentUserContext } from "./Context/CurrentUserContext";
+import { UserContext } from "./Context/UserContext";
 import GlobalStyles from "./Styles/GlobalStyles";
 import SignUp from "./Pages/SignUp";
 
@@ -20,7 +20,7 @@ const App = () => {
     setHomeFeed,
     setError,
     actions: { receiveUserInfoFromServer },
-  } = useContext(CurrentUserContext);
+  } = useContext(UserContext);
 
   useEffect(() => {
     fetch("api/get-feed")
