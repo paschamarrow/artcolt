@@ -12,14 +12,16 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "./Context/UserContext";
 import GlobalStyles from "./Styles/GlobalStyles";
 import SignUp from "./Pages/SignUp";
+import SideBar from "./Components/SideBar";
+import LandingPage from "./Pages/LandingPage";
 
 //function instead?
 const App = () => {
   const {
     setCurrentUser,
     setHomeFeed,
-    setError,
-    actions: { receiveUserInfoFromServer },
+    
+    actions: { receiveUserInfoFromServer, setError},
   } = useContext(UserContext);
 
   useEffect(() => {
@@ -48,19 +50,17 @@ const App = () => {
         <NavBar />
         <Main>
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            {/* <Route
-                            path="/teachers/:ArtCategory"
-                            element={<TeachersByCategory />}
-                        /> */}
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/Home" element={<HomePage />} />
+            
             <Route path="/teachers/" element={<AllProfiles />} />
-            <Route path="/teachers/:teacherId" element={<Profile />} />
+            <Route path="/teachers/:userId" element={<Profile />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/SignIn" element={<SignIn />} />
             <Route path="/SignUp" element={<SignUp />} />
           </Routes>
         </Main>
-        <Footer />
+        
       </Router>
     </>
   );

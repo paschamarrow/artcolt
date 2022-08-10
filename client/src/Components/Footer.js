@@ -92,7 +92,7 @@ const FooterDiv = styled.div`
     letter-spacing: 0.3px;
     font-family: "Helvetica", sans-serif;
 
-    height: 270px;
+    height: 150px;
     overflow-y: scroll;
     width: 100vw;
 

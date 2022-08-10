@@ -5,6 +5,7 @@ const initialState = {
   allUsers: null,
   setAllUsers: null,
   newUser: {},
+  //notsure if line 7 is correct
 };
 
 const reducer = (state, action) => {
@@ -29,6 +30,12 @@ const reducer = (state, action) => {
         allUsers: action.data,
       };
     }
+    case "get-user": {
+      return {
+        ...state,
+        user: action.data,
+      };
+    }
     default:
       throw new Error(`Unrecognized action: ${action.type}`);
   }
@@ -37,31 +44,21 @@ const reducer = (state, action) => {
 export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // const [currentUser, setCurrentUser] = useState({});
-  // const [error, setError] = useState(false);
-  // const [homeFeed, setHomeFeed] = useState(null);
-
-  // const receiveUserInfoFromServer = (data) => {
-  //   dispatch({
-  //     type: "receive-user-info-from-server",
-  //     ...data,
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   fetch("/api/me/profile")
-  //     .then((something) => something.json())
-  //     .then((data) => {
-  //       setCurrentUser(data);
-  //       receiveUserInfoFromServer(data);
-  //     });
-  // }, []);
 
   const getUsers = (data) => {
     dispatch({
       type: "get-users",
       data,
     });
+  };
+
+
+  const getUser = (data) => {
+    dispatch({
+      type: "get-user",
+      ...data,
+      //is data spread here for single user or is single user an array too?
+    })
   };
   const addUser = (data) => {
     fetch("/api/add-user", {
@@ -77,6 +74,19 @@ export const UserProvider = ({ children }) => {
     });
   };
 
+  const setError = () => {
+    //to do
+  }
+
+  // useEffect(() => {
+  //   fetch("/api/get-users")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       getUsers(data.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
+
   return (
     <UserContext.Provider
       value={{
@@ -84,6 +94,8 @@ export const UserProvider = ({ children }) => {
         actions: {
           addUser,
           getUsers,
+          getUser,
+          setError,
           
         },
       }}
