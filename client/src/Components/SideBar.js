@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import { GiJungle, GiAbstract079 , GiAndromedaChain } from "react-icons/gi";
+import { GiJungle, GiAbstract079 , GiAndromedaChain, GiAnchor  } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 
 const SideBar = () => {
@@ -10,13 +10,13 @@ const SideBar = () => {
     
     <BarWrapper>
      
-      <Links to={{ pathname: "/teachers/" }}>
-      <Iconspan> <GiJungle /> </Iconspan>
-        <Subtitles>ALL USERS</Subtitles>
+      <Links to={{ pathname: "/Home/" }}>
+      <Iconspan> <GiAnchor/> </Iconspan>
+        <Subtitles>Home</Subtitles>
       </Links>
-      <Links to={{ pathname: "/notifications/" }}>
-      <Iconspan><GiAbstract079 /></Iconspan>
-        <Subtitles>N E W</Subtitles>
+      <Links to={{ pathname: "/AllProfiles/" }}>
+      <Iconspan><GiJungle /></Iconspan>
+        <Subtitles>All Users</Subtitles>
       </Links>
       <Links to={{ pathname: "/bookmarks/" }}>
       <Iconspan><GiAndromedaChain/></Iconspan>

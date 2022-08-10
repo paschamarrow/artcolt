@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { APPNAME } from "../Styles/GlobalVariables";
 import styled from "styled-components";
 import { GoSignIn } from "react-icons/go";
-// import { GiAnchor } from "react-icons/gi";
+
 
 const NavBar = () => {
   const linkStyle = {
