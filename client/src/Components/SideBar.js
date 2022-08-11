@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 import { GiJungle, GiAbstract079 , GiAndromedaChain, GiAnchor  } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
-
+// import test from "../styleimages/3layerscrop.jpg";
 const SideBar = () => {
 
 
@@ -10,17 +10,17 @@ const SideBar = () => {
     
     <BarWrapper>
      
-      <Links to={{ pathname: "/Home/" }}>
+      <Links to={{ pathname: "/teachers/:userId"}}>
       <Iconspan> <GiAnchor/> </Iconspan>
-        <Subtitles>Home</Subtitles>
+        <Subtitles>Profile</Subtitles>
       </Links>
-      <Links to={{ pathname: "/AllProfiles/" }}>
+      <Links to={{ pathname: "/teachers" }}>
       <Iconspan><GiJungle /></Iconspan>
         <Subtitles>All Users</Subtitles>
       </Links>
       <Links to={{ pathname: "/bookmarks/" }}>
       <Iconspan><GiAndromedaChain/></Iconspan>
-        <Subtitles>F O L L O W I N G</Subtitles>
+        <Subtitles>Following</Subtitles>
       </Links>
     </BarWrapper>
     
@@ -35,9 +35,10 @@ const BarWrapper = styled.ul`
   margin-right: 150px;
   font-weight: bold;
   padding-top: 20px;
-  max-width: 800px;
+  max-width: 200px;
   border: 2px solid black;
   border-radius: 4px;
+  /* background-image: {test}; */
 `;
 const Iconspan = styled.span`
 padding: 2px;`;
@@ -60,7 +61,8 @@ const Links = styled(NavLink)`
   }
 `;
 const Subtitles = styled.span`
-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;`;
+font-family: Arial, Helvetica, sans-serif;
+`;
 
 
 

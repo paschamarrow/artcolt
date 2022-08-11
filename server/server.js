@@ -19,6 +19,8 @@ const {
   // deleteArtwork,
 } = require("./handlers/Handlers");
 
+const { postMedia, getMedia } = require("./handlers/mediaHandlers");
+
 express()
   .use(express.json())
   .get("/", (req, res) => {
@@ -27,7 +29,10 @@ express()
   })
   .get("/api/get-users", getUsers)
   .get("/api/get-user/:userId", getUser)
+  .get("/api/get-media", getMedia)
+
   .post("/api/add-user", addUser)
+  .post("/api/post-media", postMedia)
   .delete("/api/delete-user/:userId", deleteUser)
   .patch("/api/update-user/:userId", updateUser)
 
@@ -52,8 +57,6 @@ express()
 
   // //delete a single artwork image post and its data
   // .delete("/api/delete-artwork/:artworkId", deleteArtwork)
-
-  
 
   .listen(port, () => {
     console.log(`Example app listening on port ${port}`);

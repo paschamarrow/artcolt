@@ -5,19 +5,12 @@ const initialState = {
   allUsers: null,
   setAllUsers: null,
   newUser: {},
+  homeFeed: [],
   //notsure if line 7 is correct
 };
 
 const reducer = (state, action) => {
-  console.log(action)
   switch (action.type) {
-    // case "receive-user-info-from-server": {
-    //   return {
-    //     ...state,
-    //     currentUser: action.currentUser,
-    //     status: "idle",
-    //   };
-    // }
     case "add-user": {
       return {
         ...state,
@@ -36,6 +29,12 @@ const reducer = (state, action) => {
         user: action.data,
       };
     }
+    case "get-homeFeed": {
+      return {
+        ...state,
+        homeFeed: action.data,
+      };
+    }
     default:
       throw new Error(`Unrecognized action: ${action.type}`);
   }
@@ -44,21 +43,26 @@ const reducer = (state, action) => {
 export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-
   const getUsers = (data) => {
     dispatch({
       type: "get-users",
       data,
     });
   };
-
+  const getHomeFeed = (data) => {
+    console.log("here", data);
+    dispatch({
+      type: "get-homeFeed",
+      data,
+    });
+  };
 
   const getUser = (data) => {
     dispatch({
       type: "get-user",
       ...data,
       //is data spread here for single user or is single user an array too?
-    })
+    });
   };
   const addUser = (data) => {
     fetch("/api/add-user", {
@@ -76,7 +80,7 @@ export const UserProvider = ({ children }) => {
 
   const setError = () => {
     //to do
-  }
+  };
 
   // useEffect(() => {
   //   fetch("/api/get-users")
@@ -96,7 +100,7 @@ export const UserProvider = ({ children }) => {
           getUsers,
           getUser,
           setError,
-          
+          getHomeFeed,
         },
       }}
     >

@@ -40,6 +40,7 @@ const AllProfiles = () => {
             <AllUsersBox>
               <Link to={`/teachers/${user._id}`} style={linkStyle}>
                 <AllUsersList>
+                  <img src = {user.avatarSrc} />
                   <Name>
                     {user.firstName} <Link to={`/teachers/${user._id}`}></Link>
                   </Name>
@@ -84,7 +85,7 @@ const AllUsersList = styled.ul`
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: lighter;
   width: 600px;
-  border-top: 1px solid #e3c4a6;
+  border-top: 1px solid #FF00FF;
   height: 180px;
 `;
 export default AllProfiles;

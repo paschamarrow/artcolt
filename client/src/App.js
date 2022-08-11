@@ -3,14 +3,13 @@ import React from "react";
 import SignIn from "./Pages/SignIn";
 import AllProfiles from "./Pages/AllProfiles";
 import Profile from "./Pages/Profile";
-import Notifications from "./Components/Notifcations";
 import NavBar from "./Components/NavBar";
 import styled from "styled-components";
 import HomePage from "./Pages/HomePage";
-import Footer from "./Components/Footer";
+// import Footer from "./Components/Footer";
 import { useContext, useEffect } from "react";
 import { UserContext } from "./Context/UserContext";
-import GlobalStyles from "./Styles/GlobalStyles";
+// import GlobalStyles from "./Styles/GlobalStyles";
 import SignUp from "./Pages/SignUp";
 import SideBar from "./Components/SideBar";
 import LandingPage from "./Pages/LandingPage";
@@ -20,8 +19,8 @@ const App = () => {
   const {
     setCurrentUser,
     setHomeFeed,
-    
-    actions: { receiveUserInfoFromServer, setError},
+
+    actions: { receiveUserInfoFromServer, setError, getHomeFeed },
   } = useContext(UserContext);
 
   useEffect(() => {
@@ -43,6 +42,14 @@ const App = () => {
         receiveUserInfoFromServer(data);
       });
   }, []);
+  useEffect(() => {
+    fetch("/api/get-media")
+      .then((something) => something.json())
+      .then((data) => {
+        console.log("dta,data", data);
+        getHomeFeed(data.data);
+      });
+  }, []);
 
   return (
     <>
@@ -52,15 +59,14 @@ const App = () => {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/Home" element={<HomePage />} />
-            
+
             <Route path="/teachers/" element={<AllProfiles />} />
             <Route path="/teachers/:userId" element={<Profile />} />
-            <Route path="/notifications" element={<Notifications />} />
+
             <Route path="/SignIn" element={<SignIn />} />
             <Route path="/SignUp" element={<SignUp />} />
           </Routes>
         </Main>
-        
       </Router>
     </>
   );

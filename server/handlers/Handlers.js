@@ -59,7 +59,8 @@ const addUser = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   console.log(req.body);
   console.log("req");
-  const { bio, statement, location, firstName, lastName, email } = req.body;
+  const { bio, statement, location, firstName, lastName, email, avatarSrc } =
+    req.body;
   const newUser = {
     _id: uuidv4(),
     bio,
@@ -68,6 +69,7 @@ const addUser = async (req, res) => {
     firstName,
     lastName,
     email,
+    avatarSrc,
   };
 
   try {

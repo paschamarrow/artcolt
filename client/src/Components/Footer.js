@@ -24,31 +24,23 @@ const Footer = () => {
                 </div>
                 <div>
                     <h4>Manage Account</h4>
-                    <a href="/join">Join Now</a>
-                    <a href="/tour">Take A Tour</a>
+                    <a href="/join">Join</a>
                     <p>FAQ</p>
                     <p>Log-In</p>
+                    <p>Contact Support</p>
                    
                 </div>
                 <div>
-                    <h4>News </h4>
+                    <h4>News & Interviews </h4>
                     <a href="/signup">Newsletter sign up</a>
                     <a href="https://www.parl.ca/DocumentViewer/en/44-1/bill/C-27/first-reading">
                         Canada's Consumer Privacy Act
                     </a>
-                 
-                    
-                </div>
-             
+                    </div>
+                   
+            
                 <div>
-                    <h4>News & Info</h4>
-                    <p>Press Releases</p>
-                 
-                  
-                    
-                </div>
-                <div>
-                    <h4>Other Sites</h4>
+                    <h4>More Links</h4>
                     <a
                         href="https://www.quebec-elan.org/"
                         target="_blank"

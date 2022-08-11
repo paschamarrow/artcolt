@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from "react";
 import { UserContext } from "../Context/UserContext";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import SideBar from "../Components/SideBar";
 
 
 const HomePage = () => {
@@ -35,29 +36,51 @@ const HomePage = () => {
 
   return (
     <>
-      <HomePageWrapper>
-        <DivOne><ol><p><Link to="/teachers">ALL USERS</Link></p></ol></DivOne>
-        <FollowedUsers></FollowedUsers>
-        <FollowedHeading>Following</FollowedHeading>
-        <NewPostsDiv></NewPostsDiv>
+    <HomePageUltimateWrapper>
+    <SideBar />
+    <HomePageWrapperOne>
+        <FollowedUsersImages><p>Image Posts Feed from followed users</p></FollowedUsersImages>
+      <HomePageWrapper2>
+        
+        <RandomCommentHighlight>Random Comment Highlighted</RandomCommentHighlight>
+        <NewPosts>New Posts</NewPosts>
+        <NewLinks>New Links</NewLinks>
+        
         
 
         <CurrentUserWrapper></CurrentUserWrapper>
-      </HomePageWrapper>
+      </HomePageWrapper2>
+      </HomePageWrapperOne>
+      </HomePageUltimateWrapper>
     </>
   );
 };
 
-const HomePageWrapper = styled.div``;
-const FollowedUsers = styled.div``;
-const FollowedHeading = styled.div`
+const HomePageUltimateWrapper = styled.div`
+/* display: grid; */
+display: flex;
+flex-direction: row;`;
+const HomePageWrapper2 = styled.div`
+border: 1px solid black;
+`;
+const FollowedUsersImages = styled.div`
+border: 1px solid black;`;
+const RandomCommentHighlight = styled.div`
   font-family: "Arial";
+  border: 1px solid black;
   
 `;
 
-const NewPostsDiv = styled.div``;
+const NewPosts = styled.div`
+border: 1px solid black;`;
+const NewLinks = styled.div`
+border: 1px solid black;
+`;
 
-const CurrentUserWrapper = styled.div``;
-const DivOne = styled.div``;
+const CurrentUserWrapper = styled.div`
+border: 1px solid black;`;
+const HomePageWrapperOne = styled.div`
+border: 1px solid black;`
+;
 
 export default HomePage;

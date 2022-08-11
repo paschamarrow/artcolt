@@ -31,14 +31,10 @@ const SignIn = () => {
   /**
    * Handles authentication of password or confirmation of email in databa
    */
-  // const handleSignIn = () => {
-  //     fetch("", {
-  //         method: "GET",
-  //         headers: {
-  //             "Content-Type": "application/json",
-  //         },
-  //     });
-  // };
+  // const LoginButton = () => {
+ // const {loginWithRedirect} = useAuth0()
+
+ 
 
   return (
     <Position onSubmit={handleClick}>
@@ -47,7 +43,7 @@ const SignIn = () => {
         <Input type="e-mail" placeholder="e-mail" required />
         <Input type="text" placeholder="Password" required />
        
-        <Submit type="submit" value="Login" />
+        <Submit type="submit" value="Log In" />
       </Contain>
     </Position>
   );
@@ -82,7 +78,7 @@ const Input = styled.input`
   font-size: 17px;
   font-weight: lighter;
   &:focus {
-    outline: 2px solid #e3c4a6;
+    outline: 2px solid #FF00FF;
     border-radius: 1px;
   }
 `;
@@ -98,7 +94,7 @@ const Submit = styled.input`
   color: white;
   cursor: pointer;
   &:hover {
-    background-color: #5C60B2;
+    background-color: #FF00FF;
     transition: 0.7s;
   }
 `;
