@@ -15,7 +15,7 @@ const NavBar = () => {
       <Contain>
         {/* <Link to="/" style={linkStyle} 
         <Logo src={logo} alt="" />  */}
-        <Link to="/Home" style={linkStyle}>
+        <Link to="/home" style={linkStyle}>
           <H1>{APPNAME}</H1>
         </Link>
         {/* <H2 style={{ marginBottom: "67px" }}>how do you <ListBox><List>learn</List><List>teach</List><List>do</List></ListBox> art?</H2> */}
@@ -24,7 +24,7 @@ const NavBar = () => {
           <GiAnchor size="25px" style={{ marginBottom: "55px" }} /> */}
           {/* <Subtitles>H O M E</Subtitles> */}
           {/* </Link> */}
-          <Link to="/SignIn" style={linkStyle}>
+          <Link to="/signin" style={linkStyle}>
             <ButtonsWrapper>
               <GoSignIn size="25px" style={{ marginBottom: "17px" }} />
             </ButtonsWrapper>
@@ -42,7 +42,15 @@ const Contain = styled.div`
   align-items: center;
   height: 200px;
   gap: 20px;
+  border-radius: 20px;
   border: 3px solid #0000ff;
+  /* background-color:#0000ff; */
+  box-shadow: 5px 10px #0000ff;
+  margin: 50px;
+  padding: 10px;
+  
+ 
+  
 `;
 
 const IconWrapper = styled.div`
@@ -54,7 +62,8 @@ const H1 = styled.h1`
   font-weight: lighter;
   font-size: 60px;
   margin-bottom: 70px;
-  color: #0000ff;
+  color:  black;
+  
 `;
 const H2 = styled.h1`
   font-family: "Helvetica";

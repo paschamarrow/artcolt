@@ -1,47 +1,60 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
-import { GiJungle, GiAbstract079 , GiAndromedaChain, GiAnchor  } from "react-icons/gi";
+import {
+  GiJungle,
+  GiAbstract079,
+  GiAndromedaChain,
+  GiAnchor,
+} from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 // import test from "../styleimages/3layerscrop.jpg";
 const SideBar = () => {
-
-
   return (
-    
     <BarWrapper>
-     
-      <Links to={{ pathname: "/teachers/:userId"}}>
-      <Iconspan> <GiAnchor/> </Iconspan>
-        <Subtitles>Profile</Subtitles>
+      <Links to={{ pathname: "/teachers/:userId" }}>
+        <Iconspan>
+          {" "}
+          <GiAnchor />{" "}
+        </Iconspan>
+        <Subtitles>PROFILE</Subtitles>
       </Links>
       <Links to={{ pathname: "/teachers" }}>
-      <Iconspan><GiJungle /></Iconspan>
-        <Subtitles>All Users</Subtitles>
+        <Iconspan>
+          <GiJungle />
+        </Iconspan>
+        <Subtitles>ALL USERS</Subtitles>
       </Links>
       <Links to={{ pathname: "/bookmarks/" }}>
-      <Iconspan><GiAndromedaChain/></Iconspan>
-        <Subtitles>Following</Subtitles>
+        <Iconspan>
+          <GiAndromedaChain />
+        </Iconspan>
+        <Subtitles>FOLLOWING</Subtitles>
       </Links>
     </BarWrapper>
-    
   );
 };
 
 const BarWrapper = styled.ul`
+  width: 300px;
   display: flex;
   flex-direction: column;
   gap: 40px;
   font-size: 20px;
   margin-right: 150px;
-  font-weight: bold;
+  margin-left: 50px;
+ 
   padding-top: 20px;
-  max-width: 200px;
-  border: 2px solid black;
-  border-radius: 4px;
+  padding-right: 20px;
+  max-width: px;
+  border-radius: 40px;
+  border: 3px solid #0000ff;
+  box-shadow: 5px 10px #0000ff;
   /* background-image: {test}; */
 `;
 const Iconspan = styled.span`
-padding: 2px;`;
+  padding: 2px;
+  width: 40px;
+`;
 const Links = styled(NavLink)`
   text-decoration: none;
   color: black;
@@ -57,13 +70,11 @@ const Links = styled(NavLink)`
   }
 
   &.active {
-    color: #FF00FF;
+    color: #ff00ff;
   }
 `;
 const Subtitles = styled.span`
-font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica;
 `;
-
-
 
 export default SideBar;

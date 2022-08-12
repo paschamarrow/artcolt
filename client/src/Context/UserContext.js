@@ -1,12 +1,15 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useEffect, useState } from "react";
+import {useAuth0} from '@auth0/auth0-react';
 export const UserContext = createContext(null);
+
+
 
 const initialState = {
   allUsers: null,
   setAllUsers: null,
   newUser: {},
   homeFeed: [],
-  //notsure if line 7 is correct
+  loggedInUser:"paschamarrow@gmail.com"
 };
 
 const reducer = (state, action) => {
@@ -42,6 +45,18 @@ const reducer = (state, action) => {
 
 export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [loggedInUser, setLoggedInUser] = useState(null);
+  // const [allPosts, setAllPosts] = useState(null);
+  // const [allUsers, setAllUsers] = useState(null);
+
+  const {
+    isLoading,
+    isAuthenticated,
+    error,
+    user,
+    loginWithRedirect,
+    logout,
+  } = useAuth0();
 
   const getUsers = (data) => {
     dispatch({
@@ -82,14 +97,16 @@ export const UserProvider = ({ children }) => {
     //to do
   };
 
-  // useEffect(() => {
-  //   fetch("/api/get-users")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       getUsers(data.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
+//   useEffect(() => {
+//     if(isAuthenticated){
+//     fetch(`/api/userByEmail/${user.email}`)
+//     .then((res) => res.json())
+//     .then((data) => {
+//         setLoggedInUser(data.data);
+//     })
+//     .catch((err) => console.log("err", err))}
+// }, [user])
+
 
   return (
     <UserContext.Provider

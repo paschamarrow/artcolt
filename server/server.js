@@ -9,6 +9,7 @@ const {
   addUser,
   deleteUser,
   updateUser,
+  getUserByEmail,
 
   // getProfileImage,
   // getArtworks,
@@ -30,6 +31,7 @@ express()
   .get("/api/get-users", getUsers)
   .get("/api/get-user/:userId", getUser)
   .get("/api/get-media", getMedia)
+  .get("/api/get-useremail", getUserByEmail)
 
   .post("/api/add-user", addUser)
   .post("/api/post-media", postMedia)

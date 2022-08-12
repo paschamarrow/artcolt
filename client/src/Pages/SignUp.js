@@ -47,7 +47,7 @@ const SignUp = () => {
         addUser(newUser);
       });
 
-    navigate("/SignIn");
+    navigate("/signin");
   
   };
 

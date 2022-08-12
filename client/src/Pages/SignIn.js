@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../Context/UserContext";
+import LogIn from "../Auth0/LogIn";
+import Logout from "../Auth0/LogOut";
 
 const SignIn = () => {
   const { state } = useLocation();
@@ -23,7 +25,6 @@ const SignIn = () => {
     const user = {
       email: e.target[0].value,
       password: e.target[2].value,
-      
     };
     getUser(user);
   };
@@ -31,21 +32,21 @@ const SignIn = () => {
   /**
    * Handles authentication of password or confirmation of email in databa
    */
-  // const LoginButton = () => {
- // const {loginWithRedirect} = useAuth0()
-
- 
+  //   const LoginButton = () => {
+  //  const {loginWithRedirect} = useAuth0()
 
   return (
-    <Position onSubmit={handleClick}>
-      <H1></H1>
-      <Contain>
-        <Input type="e-mail" placeholder="e-mail" required />
-        <Input type="text" placeholder="Password" required />
-       
-        <Submit type="submit" value="Log In" />
-      </Contain>
-    </Position>
+    // <Position onSubmit={handleClick}>
+    //   <H1></H1>
+    //   <Contain>
+    //     {/* <Input type="e-mail" placeholder="e-mail" required />
+    //     <Input type="text" placeholder="Password" required /> */}
+
+    //     {/* <Submit type="submit" value="Log In" /> */}
+      
+    //   </Contain>
+    // </Position>
+      <><LogIn /><Logout /></>
   );
 };
 
@@ -78,7 +79,7 @@ const Input = styled.input`
   font-size: 17px;
   font-weight: lighter;
   &:focus {
-    outline: 2px solid #FF00FF;
+    outline: 2px solid #ff00ff;
     border-radius: 1px;
   }
 `;
@@ -94,7 +95,7 @@ const Submit = styled.input`
   color: white;
   cursor: pointer;
   &:hover {
-    background-color: #FF00FF;
+    background-color: #ff00ff;
     transition: 0.7s;
   }
 `;

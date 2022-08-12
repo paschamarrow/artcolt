@@ -13,40 +13,44 @@ import { UserContext } from "./Context/UserContext";
 import SignUp from "./Pages/SignUp";
 import SideBar from "./Components/SideBar";
 import LandingPage from "./Pages/LandingPage";
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
+import Loading from "./Components/Loading";
 
-//function instead?
+
 const App = () => {
   const {
     setCurrentUser,
     setHomeFeed,
-
     actions: { receiveUserInfoFromServer, setError, getHomeFeed },
   } = useContext(UserContext);
 
-  useEffect(() => {
-    fetch("api/get-feed")
-      .then((res) => res.json())
-      .then((data) => {
-        setHomeFeed(data);
-      })
-      .catch(() => {
-        setError(true);
-      });
-  }, []);
+  const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } =
+    useAuth0();
 
-  useEffect(() => {
-    fetch("/get-profiles")
-      .then((something) => something.json())
-      .then((data) => {
-        setCurrentUser(data);
-        receiveUserInfoFromServer(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("api/get-feed")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setHomeFeed(data);
+  //     })
+  //     .catch(() => {
+  //       setError(true);
+  //     });
+  // }, []);
+
+  // useEffect(() => {
+  //   fetch("/get-profiles")
+  //     .then((something) => something.json())
+  //     .then((data) => {
+  //       setCurrentUser(data);
+  //       receiveUserInfoFromServer(data);
+  //     });
+  // }, []);
   useEffect(() => {
     fetch("/api/get-media")
       .then((something) => something.json())
       .then((data) => {
-        console.log("dta,data", data);
+        console.log("data,data", data);
         getHomeFeed(data.data);
       });
   }, []);
@@ -58,13 +62,13 @@ const App = () => {
         <Main>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/Home" element={<HomePage />} />
+            <Route path="/home" element={<HomePage />} />
 
             <Route path="/teachers/" element={<AllProfiles />} />
             <Route path="/teachers/:userId" element={<Profile />} />
 
-            <Route path="/SignIn" element={<SignIn />} />
-            <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
           </Routes>
         </Main>
       </Router>

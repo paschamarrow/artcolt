@@ -1,36 +1,92 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { UserContext } from "../Context/UserContext";
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 
 const LandingPage = () => {
   const {
     state: { homeFeed },
   } = useContext(UserContext);
-  console.log("homeFeed,", homeFeed);
+
+  const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } =
+    useAuth0();
+  console.log(user);
 
   return (
     <Wrapper>
-      {homeFeed &&
-        homeFeed.map((post) => {
-          return (
-            <>
-              <p>{post.title}</p>
-              <img style={{width:"100px"}} src={post.url} />
-            </>
-          );
-        })}
+      <Contain>
+        {homeFeed &&
+          homeFeed.map((post) => {
+            return (
+              <>
+                <FeedBox>
+                  <PostTitle>{post.title}</PostTitle>
+                  {/* <Name>{post.lastName}</Name> */}
+                  <Img src={post.url} />
+                </FeedBox>
+              </>
+            );
+          })}
+      </Contain>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  width: 100%;
-  margin-top: 35px;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-
-  font-size: 20px;
+  flex-direction: column;
+  align-items: center;
+  /* overflow-y: scroll; */
+  /* border: 4px solid green; */
+  padding: 20px;
+  margin: 20px;
 `;
 
+const Contain = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  /* height: 350px; */
+  font-size: 14px;
+  font-family: "Kosugi", Arial, Helvetica, sans-serif;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  opacity: 0.9;
+  padding: 44px;
+  border-radius: 20px;
+  border: 3px solid #0000ff;
+  /* background-color:#5C60B2; */
+  box-shadow: 5px 10px #0000ff;
+`;  
+
+const PostTitle = styled.p`
+  font-family: "Helvetica";
+  font-weight: lighter;
+  font-size: 10px;
+  position: relative;
+  top: -10px;
+`;
+const Img = styled.img`
+  width: 300px;
+  height: fit-content;
+  margin-bottom: 10px;
+  &:hover {
+    height: fit-content;
+    width: 400px;
+  }
+`;
+const FeedBox = styled.div`
+  width: 200px;
+  height: fit-content;
+  margin: 25px;
+  &:hover {
+    font-weight: bold;
+  }
+`;
+// const Name = styled.p`
+//     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+//         sans-serif;
+//     font-weight: lighter;
+// `;
 export default LandingPage;

@@ -43,6 +43,7 @@ const CreatePost = () => {
   };
   return (
     <Wrapper>
+      <CreatePostTitle>create post</CreatePostTitle>
       <form onSubmit={submitHandler}>
         <span>Image</span>
         <input
@@ -94,6 +95,20 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 40px;
+  border: 3px solid #0000ff;
+  box-shadow: 5px 10px #0000ff;
+  height: 800px;
+  width: 400px;
+  margin-right: 150px;
+  margin-left: 50px;
+
+  padding-top: 20px;
+  padding-right: 20px;
+`;
+
+const CreatePostTitle = styled.h3`
+  font-family: "Arial";
 `;
 
 export default CreatePost;

@@ -8,6 +8,7 @@ export default createGlobalStyle`
     --color-pale-skyblue: #D0D2FF;
     --color-desert-sand: #E3C4A6;
     --color-purple-bluemix: #5C60B2;
+    --color-white-creme: #ffffff;
     --color-charcoal-paintcard: #36454f;
     --color-classic-internetblue: #0000ff;
     --font-heading: "Arial Black", Helvetica, sans-serif;

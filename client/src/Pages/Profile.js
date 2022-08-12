@@ -11,37 +11,18 @@ const Profile = () => {
   } = useContext(UserContext);
 
   return (
-    <>
-      <ProfilePageWrapper>
-        <SideBar />
-        <CurrentUserInfoWrapper>
-          <ProfilePicture></ProfilePicture>
-          <ProfileDataList></ProfileDataList>
-        </CurrentUserInfoWrapper>
-        <ArtworkWrapper>
-          <ImageFeed></ImageFeed>
-        </ArtworkWrapper>
-        <FileUploadsWrapper></FileUploadsWrapper>
-        <StatementWrapper></StatementWrapper>
-        <CommentsBox></CommentsBox>
-        <LinksBox></LinksBox>
-        <FollowersBox></FollowersBox>
-      </ProfilePageWrapper>
+    <ProfilePageWrapper>
+      <SideBar />
+
       <CreatePost />
-    </>
+    </ProfilePageWrapper>
   );
 };
 
-const ProfilePageWrapper = styled.div``;
-const CurrentUserInfoWrapper = styled.div``;
-const ProfilePicture = styled.div``;
-const ProfileDataList = styled.div``;
-const ArtworkWrapper = styled.div``;
-const FileUploadsWrapper = styled.div``;
-const FollowersBox = styled.div``;
-const StatementWrapper = styled.div``;
-const CommentsBox = styled.div``;
-const LinksBox = styled.div``;
-const ImageFeed = styled.div``;
+const ProfilePageWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
 
+  width: 1400;
+`;
 export default Profile;
