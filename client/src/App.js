@@ -15,7 +15,7 @@ import SideBar from "./Components/SideBar";
 import LandingPage from "./Pages/LandingPage";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from "./Components/Loading";
-
+import FeedProvider from "./Context/FeedContext";
 
 const App = () => {
   const {
@@ -65,7 +65,15 @@ const App = () => {
             <Route path="/home" element={<HomePage />} />
 
             <Route path="/teachers/" element={<AllProfiles />} />
-            <Route path="/teachers/:userId" element={<Profile />} />
+            <Route
+              path="/teachers/:userId"
+              element={
+                <FeedProvider>
+                  {" "}
+                  <Profile />{" "}
+                </FeedProvider>
+              }
+            />
 
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
