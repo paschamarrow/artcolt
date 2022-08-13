@@ -33,7 +33,6 @@ const postMedia = async (req, res) => {
   }
 };
 const getMedia = async (req, res) => {
- 
   try {
     const client = new MongoClient(MONGO_URI, options);
     await client.connect();
@@ -45,4 +44,19 @@ const getMedia = async (req, res) => {
   }
 };
 
-module.exports = { postMedia, getMedia };
+const getMediaByEmail = async (req, res) => {
+  try {
+    const client = new MongoClient(MONGO_URI, options);
+    await client.connect();
+    const db = client.db("artcolt");
+    const email = req.query.email;
+    console.log("email", email);
+    const result = await db.collection("media").find({ email }).toArray();
+
+    sendResponse(res, 200, result, "email post found");
+  } catch (err) {
+    sendResponse(res, 400, null, "media post not found");
+  }
+};
+
+module.exports = { postMedia, getMedia, getMediaByEmail };

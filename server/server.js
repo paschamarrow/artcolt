@@ -11,16 +11,11 @@ const {
   updateUser,
   getUserByEmail,
 
-  // getProfileImage,
-  // getArtworks,
-  // getArtwork,
-  // updateProfileImage,
-  // updateArtwork,
-  // deleteProfileImage,
-  // deleteArtwork,
+
+
 } = require("./handlers/Handlers");
 
-const { postMedia, getMedia } = require("./handlers/mediaHandlers");
+const { postMedia, getMedia, getMediaByEmail} = require("./handlers/mediaHandlers");
 
 express()
   .use(express.json())
@@ -35,6 +30,7 @@ express()
 
   .post("/api/add-user", addUser)
   .post("/api/post-media", postMedia)
+  .get("/api/get-mediabyemail", getMediaByEmail)
   .delete("/api/delete-user/:userId", deleteUser)
   .patch("/api/update-user/:userId", updateUser)
 

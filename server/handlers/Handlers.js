@@ -246,16 +246,6 @@ module.exports = {
   deleteUser,
   updateUser,
   getUserByEmail,
-  // getProfileImage,
-  // getArtworks,
-  // getArtwork,
-  // updateProfileImage,
-  // updateArtwork,
-  // deleteProfileImage,
-  // deleteArtwork,
 
-  //getImagePost
-  //updateImagePost
-  //addImagePost
-  //getTextPost
+ 
 };

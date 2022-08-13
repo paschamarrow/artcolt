@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import { User } from "@auth0/auth0-react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
+import { UserContext } from "../Context/UserContext";
+
 const CreatePost = () => {
   const [postData, setPostData] = useState({});
   const [uploadedFile, setUploadedFile] = useState();
 
+  const {
+    state: { loggedInUser },
+  } = useContext(UserContext);
+  console.log("loggedInUser", loggedInUser);
   const onChangeHandler = (e) => {
     //used the spread operator to keep previous fields untouched when updating info
     setPostData({
@@ -28,14 +35,18 @@ const CreatePost = () => {
     const cloudinaryData = await cloudinaryRes.json();
     const expressRes = await fetch("/api/post-media", {
       method: "POST",
-      body: JSON.stringify({ ...postData, url: cloudinaryData.secure_url }),
+      body: JSON.stringify({
+        ...postData,
+        url: cloudinaryData.secure_url,
+        email: loggedInUser,
+      }),
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
     });
     await expressRes.json();
-    
+
     setPostData({ ...postData, url: cloudinaryData.secure_url });
   };
 
