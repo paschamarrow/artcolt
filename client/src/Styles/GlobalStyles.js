@@ -55,11 +55,24 @@ export default createGlobalStyle`
   blockquote, q {
       quotes: none;
   }
+  /* Improve media defaults */
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
   blockquote:before, blockquote:after,
   q:before, q:after {
       content: '';
       content: none;
   }
+
+  /* Avoid text overflows */
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
 
   h1,
 h2,

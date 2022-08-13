@@ -20,6 +20,7 @@ const Profile = () => {
 };
 
 const ProfilePageWrapper = styled.div`
+background-image: url('./styledimages/pascha.jpg');
   display: flex;
   flex-direction: row;
 

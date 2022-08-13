@@ -27,9 +27,9 @@ const postMedia = async (req, res) => {
     await client.connect();
     const db = client.db("artcolt");
     await db.collection("media").insertOne(mediaObject);
-    sendResponse(res, 200, null, "post created");
+    sendResponse(res, 200, null, "media post created");
   } catch (err) {
-    sendResponse(res, 400, null, "post not created");
+    sendResponse(res, 400, null, "media post not created");
   }
 };
 const getMedia = async (req, res) => {
@@ -39,9 +39,9 @@ const getMedia = async (req, res) => {
     await client.connect();
     const db = client.db("artcolt");
     const result = await db.collection("media").find().toArray();
-    sendResponse(res, 200, result, "post created");
+    sendResponse(res, 200, result, "media post found");
   } catch (err) {
-    sendResponse(res, 400, null, "post not created");
+    sendResponse(res, 400, null, "media post not found");
   }
 };
 

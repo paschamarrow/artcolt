@@ -35,7 +35,7 @@ const SideBar = () => {
 };
 
 const BarWrapper = styled.ul`
-  width: 300px;
+  width: 400px;
   display: flex;
   flex-direction: column;
   gap: 40px;
