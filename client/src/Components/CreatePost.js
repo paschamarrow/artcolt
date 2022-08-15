@@ -2,6 +2,7 @@ import { User } from "@auth0/auth0-react";
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { UserContext } from "../Context/UserContext";
+import postimage from "../styleimages/POST.jpg"
 
 const CreatePost = () => {
   const [postData, setPostData] = useState({});
@@ -83,8 +84,9 @@ const CreatePost = () => {
 
   return (
     <Wrapper>
-      <CreatePostTitle>create post</CreatePostTitle>
-      <form onSubmit={submitHandlerTwo}>
+      <CreatePostDiv>
+      <CreatePostHeader><img src={postimage}/></CreatePostHeader>
+      <Form onSubmit={submitHandlerTwo}>
         <span>Image</span>
         <input
           type="file"
@@ -124,8 +126,9 @@ const CreatePost = () => {
             onChangeHandler(e);
           }}
         />
-        <button>Submit</button>
-      </form>
+        <SubmitButton>Submit</SubmitButton>
+      </Form>
+      </CreatePostDiv>
     </Wrapper>
   );
 };
@@ -135,20 +138,51 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 40px;
-  border: 3px solid #0000ff;
+  /* border-radius: 40px; */
+  /* border: 3px solid #0000ff; */
   box-shadow: 5px 10px #0000ff;
-  height: 500px;
-  width: 800px;
+  height: 400px;
+  width: 300px;
   margin-right: 150px;
   margin-left: 50px;
-
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:#D0D2FF;
   padding-top: 20px;
   padding-right: 20px;
 `;
 
-const CreatePostTitle = styled.h3`
+const CreatePostHeader= styled.h3`
   font-family: "Arial";
+  font-style: italic;
+  img {
+    width: 100px;
+    align-self: left;
+}
+&:hover {
+    background-color: #D0D2FF;
+    color: black;
+    border-radius: 20px;
+  }
 `;
+
+const CreatePostDiv = styled.div`
+display: flex;
+flex-direction: column`;
+
+const Form = styled.form`
+display: flex;
+padding: 20px;
+flex-direction: column`;
+
+const SubmitButton = styled.button`
+background-color: white;
+border-radius: 10px;
+width: 100px;
+border: 1px white;
+align-self: center;
+padding: 10px;
+margin-top: 10px;
+margin-left: 30px;
+`
 
 export default CreatePost;

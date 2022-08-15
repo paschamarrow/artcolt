@@ -21,7 +21,7 @@ const LandingPage = () => {
               <>
                 <FeedBox>
                   <PostTitle>{post.title}</PostTitle>
-                  {/* <Name>{post.lastName}</Name> */}
+                  <Name>{post.lastName}</Name>
                   <Img src={post.url} />
                 </FeedBox>
               </>
@@ -51,15 +51,24 @@ const Contain = styled.div`
   font-family: "Kosugi", Arial, Helvetica, sans-serif;
   justify-content: center;
   align-items: center;
-  width: 900px;
+  width: 2000px;
   opacity: 0.9;
   padding: 44px;
-  border-radius: 20px;
-  border: 3px solid #0000ff;
+  /* border-radius: 20px; */
+  border-top: 3px solid #0000ff;
+  border-right: none;
   /* background-color:#5C60B2; */
   box-shadow: 5px 10px #0000ff;
 `;  
-
+const FeedBox = styled.div`
+  display: flex;
+  width: 200px;
+  height: fit-content;
+  margin: 25px;
+  &:hover {
+    font-weight: bold;
+  }
+`;
 const PostTitle = styled.p`
   font-family: "Helvetica";
   font-weight: lighter;
@@ -76,17 +85,6 @@ const Img = styled.img`
     width: 400px;
   }
 `;
-const FeedBox = styled.div`
-  width: 200px;
-  height: fit-content;
-  margin: 25px;
-  &:hover {
-    font-weight: bold;
-  }
-`;
-// const Name = styled.p`
-//     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-//         sans-serif;
-//     font-weight: lighter;
-// `;
+
+const Name = styled.div``;
 export default LandingPage;

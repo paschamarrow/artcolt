@@ -43,13 +43,13 @@ const Contain = styled.div`
   align-items: center;
   height: 200px;
   gap: 20px;
-  border-radius: 20px;
-  border: 3px solid #0000ff;
+  /* border-radius: 20px; */
+  border: 3px solid #D0D2FF;
   /* border-top: none;
   border-right: none;
   border-left: none; */
   /* background-color:#0000ff; */
-  box-shadow: 5px 10px #0000ff;
+  box-shadow: 5px 10px #D0D2FF;
   margin: 50px;
   padding: 50px;
   

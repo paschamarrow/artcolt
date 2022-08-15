@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../Context/UserContext";
 
-
 const AllProfiles = () => {
   const {
     state: { allUsers },
@@ -40,11 +39,15 @@ const AllProfiles = () => {
             <AllUsersBox>
               <Link to={`/teachers/${user._id}`} style={linkStyle}>
                 <AllUsersList>
-                  <img src = {user.avatarSrc} />
                   <Name>
-                    {user.firstName} <Link to={`/teachers/${user._id}`}></Link>
+                    {user.firstName}{" "}
+                    <Link to={`/teachers/${user._id}`}>
+                      <LastName>{user.lastName}</LastName>
+                    </Link>
                   </Name>
-                  <LastName>{user.lastName}</LastName>
+                  <ProfileImage>
+                    <img src={user.avatarSrc} />
+                  </ProfileImage>
 
                   <Location>{user.location}</Location>
                   <Bio>{user.bio}</Bio>
@@ -61,31 +64,55 @@ const AllProfiles = () => {
 const AllUsersHeading = styled.p`
   font-family: "Arial";
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 
   font-weight: lighter;
   font-size: 25px;
- 
 `;
 const AllUsersBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 500px;
 `;
-const Name = styled.div``;
+const Name = styled.div`
+  display: flex;
+  flex-direction: row;
+  font-size: 24px;
+  /* padding: 10px; */
+  margin-top: 10px;
+  font-family: "Arial";
+  &:hover {
+    color: #0000ff;
+  }
+`;
 const LastName = styled.div``;
 
-const Location = styled.div``;
-const AllUsers = styled.div``;
-const Bio = styled.div``;
+const ProfileImage = styled.div`
+  width: 100px;
+  height: 100px;
+  display: flex;
+`;
+const Location = styled.div`
+  display: flex;
+  font-style: italic;
+`;
+
+const Bio = styled.div`
+  display: flex;
+  margin-top: 20px;
+`;
+
 const AllUsersList = styled.ul`
   list-style: none;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: lighter;
   width: 600px;
-  border-top: 1px solid #FF00FF;
+  border-top: 1px solid #ff00ff;
   height: 180px;
 `;
+
+const AllUsers = styled.div``;
 export default AllProfiles;

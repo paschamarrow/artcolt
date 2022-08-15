@@ -98,10 +98,10 @@ const Upperdiv = styled.div`
   justify-content: space-evenly;
   align-items: flex-start;
   margin-bottom: 20px;
-  border-radius: 40px;
-  border: 3px solid #0000ff;
+  /* border-radius: 40px; */
+  /* border: 3px solid #0000ff; */
 
-  box-shadow: 5px 10px #0000ff;
+  /* box-shadow: 5px 10px #0000ff; */
   margin: 50px;
   padding: 10px;
   div h4 {

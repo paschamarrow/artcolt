@@ -6,6 +6,12 @@ import { Link } from "react-router-dom";
 import SideBar from "../Components/SideBar";
 import Loading from "../Components/Loading";
 import Footer from "../Components/Footer";
+import saved from "../styleimages/SAVED.jpg";
+
+
+
+import highlights from "../styleimages/HIGHLIGHTS.jpg";
+
 
 const HomePage = () => {
   const {
@@ -43,17 +49,17 @@ const HomePage = () => {
       <HomePageUltimateWrapper>
         <SideBar />
         <FeedWrapper>
-          <FollowedUsersImages>
-            <FeedTitle>Posts Feed </FeedTitle>
-          </FollowedUsersImages>
+          <SavedPosts>
+            <FeedTitle> </FeedTitle>
+          </SavedPosts>
           <HomePageWrapperTwo>
             <RandomHighlight>
-              <HighlightsTitle>Highlights</HighlightsTitle>
+              <HighlightsTitle><img src={highlights}/> </HighlightsTitle>
             </RandomHighlight>
             
             
 
-            <CurrentUserWrapper><CurrentUserStuff>Stuff that changes with current user</CurrentUserStuff></CurrentUserWrapper>
+            <CurrentUserWrapper><CurrentUserStuff><img src={saved}/></CurrentUserStuff></CurrentUserWrapper>
           </HomePageWrapperTwo>
         </FeedWrapper>
       </HomePageUltimateWrapper>
@@ -71,22 +77,25 @@ const HomePageUltimateWrapper = styled.div`
   width: 1400;
 `;
 const FeedWrapper = styled.div`
-  border: 1px solid black;
+  
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-direction: row
  
   width: 1200px;
 `;
-const FollowedUsersImages = styled.div`
-  border: 1px solid black;
+const SavedPosts = styled.div`
+ 
   width: 600px;
   margin: 25px;
   padding: 44px;
-  border-radius: 20px;
-  border: 3px solid #0000ff;
+  
+  border: 3px solid #D0D2FF;
   /* background-color:#5C60B2; */
-  box-shadow: 5px 10px #0000ff;
+  box-shadow: 5px 10px #D0D2FF;
+  img {
+    width: 100px;
+    align-self: left;
+}
 `;
 
 const FeedTitle = styled.h2`
@@ -99,30 +108,38 @@ const RandomHighlight = styled.div`
   font-family: "Arial";
   display: flex;
   flex-direction: row;
-  border-radius: 20px;
-  border: 3px solid #0000ff;
+  /* border-radius: 20px; */
+  /* border: 3px solid #0000ff; */
   /* background-color:#5C60B2; */
-  box-shadow: 5px 10px #0000ff;
+  box-shadow: 5px 10px #D0D2FF;
 `;
 const HighlightsTitle = styled.h2`
   font-family: Arial, Helvetica, sans-serif;
+  img {
+    width: 100px;
+    align-self: left;
+}
 `;
 
 
 const CurrentUserWrapper = styled.div`
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: row;
-  border-radius: 20px;
-  border: 3px solid #0000ff;
+  /* border-radius: 20px; */
+  /* border: 3px solid #0000ff; */
   /* background-color:#5C60B2; */
-  box-shadow: 5px 10px #0000ff;
+  box-shadow: 5px 10px #D0D2FF;
+  img {
+    width: 100px;
+    align-self: left;
+}
 `;
 
 const CurrentUserStuff = styled.h2`
 font-family: "Arial";`;
 const HomePageWrapperTwo = styled.div`
-  border: 1px solid black;
+  /* border: 1px solid black; */
 `;
 export default HomePage;
 // withAuthenticationRequired(

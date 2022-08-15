@@ -12,22 +12,22 @@ const SideBar = () => {
   return (
     <BarWrapper>
       <Links to={{ pathname: "/teachers/:userId" }}>
-        <Iconspan>
-          {" "}
-          <GiAnchor />{" "}
-        </Iconspan>
+        {/* <Iconspan> */}
+          {/* {" "}
+          <GiAnchor />{" "} */}
+        {/* </Iconspan> */}
         <Subtitles>PROFILE</Subtitles>
       </Links>
       <Links to={{ pathname: "/teachers" }}>
-        <Iconspan>
-          <GiJungle />
-        </Iconspan>
+        {/* <Iconspan> */}
+          {/* <GiJungle /> */}
+        {/* </Iconspan> */}
         <Subtitles>ALL USERS</Subtitles>
       </Links>
       <Links to={{ pathname: "/bookmarks/" }}>
-        <Iconspan>
-          <GiAndromedaChain />
-        </Iconspan>
+        {/* <Iconspan>
+          <GiAndromedaChain /> */}
+        {/* </Iconspan> */}
         <Subtitles>FOLLOWING</Subtitles>
       </Links>
     </BarWrapper>
@@ -35,20 +35,21 @@ const SideBar = () => {
 };
 
 const BarWrapper = styled.ul`
-  width: 400px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  font-family: "Tangerine";
   font-size: 20px;
   margin-right: 150px;
   margin-left: 50px;
- 
+ background-color: #ffffff;
   padding-top: 20px;
   padding-right: 20px;
   max-width: px;
-  border-radius: 40px;
-  border: 3px solid #0000ff;
-  box-shadow: 5px 10px #0000ff;
+  /* border-radius: 40px; */
+  /* border: 3px solid #0000ff; */
+  /* box-shadow: 5px 10px #0000ff; */
   /* background-image: {test}; */
 `;
 const Iconspan = styled.span`
@@ -64,8 +65,8 @@ const Links = styled(NavLink)`
   padding: 5px 15px;
 
   &:hover {
-    background-color: #0000ff;
-    color: white;
+    background-color: #D0D2FF;
+    color: black;
     border-radius: 20px;
   }
 

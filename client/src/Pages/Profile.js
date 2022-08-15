@@ -6,6 +6,7 @@ import { UserContext } from "../Context/UserContext";
 import { FeedContext } from "../Context/FeedContext";
 import FeedProvider from "../Context/FeedContext";
 import Feed from "../Components/Feed";
+import ProfileSummaryBox from "../Components/ProfileSummaryBox";
 
 const Profile = () => {
   const {} = useContext(UserContext);
@@ -26,8 +27,9 @@ const Profile = () => {
    
       <ProfilePageWrapper>
         <SideBar />
-
-        <CreatePost />
+        <p> All Current User Posts</p>
+<ProfileSummaryBox /> <p>Profile Summary</p>
+        <CreatePost /> 
         {!!feed && <Feed feed={feed} />}
       </ProfilePageWrapper>
    
@@ -35,7 +37,7 @@ const Profile = () => {
 };
 
 const ProfilePageWrapper = styled.div`
-  background-image: url("./styledimages/pascha.jpg");
+ 
   display: flex;
   flex-direction: row;
 
