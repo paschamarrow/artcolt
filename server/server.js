@@ -26,7 +26,7 @@ express()
   .get("/api/get-users", getUsers)
   .get("/api/get-user/:userId", getUser)
   .get("/api/get-media", getMedia)
-  .get("/api/get-useremail", getUserByEmail)
+  .get("/api/get-useremail/:userEmail", getUserByEmail)
 
   .post("/api/add-user", addUser)
   .post("/api/post-media", postMedia)

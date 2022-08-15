@@ -7,35 +7,60 @@ import {
   GiAnchor,
 } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
+import profileimage from "../styleimages/profileheader.jpg";
+import allusers from "../styleimages/allusers.jpg";
+import homelabel from "../styleimages/home.jpg";
+
 // import test from "../styleimages/3layerscrop.jpg";
 const SideBar = () => {
   return (
     <BarWrapper>
-      <Links to={{ pathname: "/teachers/:userId" }}>
+      <Links to={{ pathname: "/teachers/me" }}>
         {/* <Iconspan> */}
-          {/* {" "}
+        {/* {" "}
           <GiAnchor />{" "} */}
         {/* </Iconspan> */}
-        <Subtitles>PROFILE</Subtitles>
+        <Subtitles>
+          <img src={profileimage} />
+        </Subtitles>
       </Links>
       <Links to={{ pathname: "/teachers" }}>
         {/* <Iconspan> */}
-          {/* <GiJungle /> */}
+        {/* <GiJungle /> */}
         {/* </Iconspan> */}
-        <Subtitles>ALL USERS</Subtitles>
+        <Subtitles>
+          <img src={allusers} />
+        </Subtitles>
       </Links>
-      <Links to={{ pathname: "/bookmarks/" }}>
+      <Links to={{ pathname: "/home" }}>
         {/* <Iconspan>
           <GiAndromedaChain /> */}
         {/* </Iconspan> */}
-        <Subtitles>FOLLOWING</Subtitles>
+        <Subtitles>
+          <img src={homelabel} />
+        </Subtitles>
       </Links>
     </BarWrapper>
   );
 };
 
 const BarWrapper = styled.ul`
-  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border-radius: 40px; */
+  /* border: 3px solid #0000ff; */
+  box-shadow: 5px 10px #0000ff;
+  height: 200px;
+  width: 150px;
+  margin-right: 150px;
+  margin-left: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #d0d2ff;
+  padding-top: 20px;
+  padding-right: 20px;
+  /* width: 300px;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -46,7 +71,7 @@ const BarWrapper = styled.ul`
  background-color: #ffffff;
   padding-top: 20px;
   padding-right: 20px;
-  max-width: px;
+  max-width:  */
   /* border-radius: 40px; */
   /* border: 3px solid #0000ff; */
   /* box-shadow: 5px 10px #0000ff; */
@@ -60,12 +85,12 @@ const Links = styled(NavLink)`
   text-decoration: none;
   color: black;
   display: flex;
-  height: 30px;
-  align-items: center;
+  height: 40px;
+  align-items: left;
   padding: 5px 15px;
 
   &:hover {
-    background-color: #D0D2FF;
+    background-color: #d0d2ff;
     color: black;
     border-radius: 20px;
   }
@@ -76,6 +101,10 @@ const Links = styled(NavLink)`
 `;
 const Subtitles = styled.span`
   font-family: Helvetica;
+  img {
+    width: 100px;
+    align-self: left;
+  }
 `;
 
 export default SideBar;

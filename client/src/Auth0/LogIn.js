@@ -5,7 +5,9 @@ const Login = () => {
 
   return (
     <button
-      onClick={() => loginWithRedirect({ redirect_uri: "localhost:3000/home" })}
+      onClick={() =>
+        loginWithRedirect({ redirect_uri: "http://localhost:3000/home" })
+      }
     >
       Log In
     </button>

@@ -5,46 +5,51 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
-const ProfileSummaryBox = () => {
+const ProfileSummaryBox = ({ profileData }) => {
   const {
     state: { userId },
     actions: { getUser },
+    loggedInUser,
   } = useContext(UserContext);
+
+  const displayData = profileData ? profileData : loggedInUser;
 
   //fetches all user data
 
-  useEffect(() => {
-    fetch(`/api/get-user/${userId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        getUser(data.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`/api/get-user/${userId}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       getUser(data.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   //link styling
   const linkStyle = {
     textDecoration: "none",
     color: "black",
   };
-  //returning Loading
-  console.log(userId);
-  if (!userId) {
+
+  if (!displayData) {
     return <p>profile not found</p>;
   }
+
   return (
     <ProfileSummary>
-      <ProfileImage><img src={userId.avatarSrc} /></ProfileImage>
+      <ProfileImage>
+        <img src={displayData.avatarSrc} />
+      </ProfileImage>
       <NameHeader></NameHeader>
       <PostsNumber></PostsNumber>
-      <Bio>
-      </Bio><TeachingStatement></TeachingStatement>
+      <Bio></Bio>
+      <TeachingStatement></TeachingStatement>
     </ProfileSummary>
   );
 };
 
 const ProfileSummary = styled.div`
-display: flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -54,13 +59,14 @@ display: flex;
   margin-right: 150px;
   margin-left: 50px;
   font-family: Arial, Helvetica, sans-serif;
-  background-color:#D0D2FF;
+  background-color: #d0d2ff;
   padding-top: 20px;
-  padding-right: 20px;`;
- const ProfileImage = styled.img``;
- const NameHeader = styled.img``;
- const PostsNumber = styled.div``;
- const Bio = styled.div``;
- const TeachingStatement = styled.div``;
+  padding-right: 20px;
+`;
+const ProfileImage = styled.div``;
+const NameHeader = styled.img``;
+const PostsNumber = styled.div``;
+const Bio = styled.div``;
+const TeachingStatement = styled.div``;
 
 export default ProfileSummaryBox;

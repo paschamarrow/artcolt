@@ -154,6 +154,7 @@ const Wrapper = styled.div`
 const CreatePostHeader= styled.h3`
   font-family: "Arial";
   font-style: italic;
+  margin-left: 20px;
   img {
     width: 100px;
     align-self: left;
