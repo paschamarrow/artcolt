@@ -55,10 +55,11 @@ const Contain = styled.div`
   opacity: 0.9;
   padding: 44px;
   /* border-radius: 20px; */
-  border-top: 3px solid #0000ff;
-  border-right: none;
+  /* border-top: 3px solid #0000ff; */
+  /* border-right: none; */
   /* background-color:#5C60B2; */
-  box-shadow: 5px 10px #0000ff;
+  box-shadow: 5px 10px #D0D2FF;
+  border-bottom: 3px solid #0000ff;
 `;  
 const FeedBox = styled.div`
   display: flex;

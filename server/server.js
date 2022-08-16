@@ -10,7 +10,7 @@ const {
   deleteUser,
   updateUser,
   getUserByEmail,
-} = require("./handlers/Handlers");
+} = require("./handlers/userHandlers");
 
 const {
   postMedia,
@@ -37,27 +37,7 @@ express()
   .patch("/api/update-user/:userId", updateUser)
   .delete("/api/delete-user/:userId", deleteUser)
 
-  //artwork and profile image endpoints
-
-  //profile images
-  //get a single profile image
-  // .get("/api/profile/:profileImage", getProfileImage)
-  // //update a single profile image
-  // .patch("/api/update-profileImage/:profileImage", updateProfileImage)
-  // //delete a profile image
-  // .delete("/api/delete-profileImage/:profileImage", deleteProfileImage)
-
-  // //get all artwork images and their data
-  // .get("/api/get-artworks", getArtworks)
-
-  // //get a single artwork image and its data
-  // .get("/api/get-artworks/:artworkId", getArtwork)
-
-  // //update a single artwork image post and its data
-  // .patch("/api/update-artwork/:artworkId", updateArtwork)
-
-  // //delete a single artwork image post and its data
-  // .delete("/api/delete-artwork/:artworkId", deleteArtwork)
+  
 
   .listen(port, () => {
     console.log(`Example app listening on port ${port}`);

@@ -14,20 +14,19 @@ const NavBar = () => {
     <>
       <Contain>
         <Link to="/home" style={linkStyle}>
-        <Logo src={logo} alt="" /> 
+          <Logo src={logo} alt="" />
         </Link>
         <Link to="/home" style={linkStyle}>
           <H1>{APPNAME}</H1>
         </Link>
-        {/* <H2 style={{ marginBottom: "67px" }}>how do you <ListBox><List>learn</List><List>teach</List><List>do</List></ListBox> art?</H2> */}
+
         <IconWrapper>
-          {/* <Link to="/" style={linkStyle}>
-          <GiAnchor size="25px" style={{ marginBottom: "55px" }} /> */}
-          {/* <Subtitles>H O M E</Subtitles> */}
-          {/* </Link> */}
           <Link to="/signin" style={linkStyle}>
             <ButtonsWrapper>
-              <GoSignIn size="35px" style={{marginRight: "100px",  marginTop: "105px" }} />
+              <GoSignIn
+                size="35px"
+                style={{ marginRight: "100px", marginTop: "120px" }}
+              />
             </ButtonsWrapper>
           </Link>
         </IconWrapper>
@@ -44,37 +43,32 @@ const Contain = styled.div`
   height: 200px;
   gap: 20px;
   /* border-radius: 20px; */
-  border: 3px solid #D0D2FF;
-  /* border-top: none;
-  border-right: none;
-  border-left: none; */
-  /* background-color:#0000ff; */
-  box-shadow: 5px 10px #D0D2FF;
+  border-bottom: 3px solid #0000ff;
+
+  box-shadow: 5px 10px #d0d2ff;
   margin: 50px;
   padding: 50px;
-  
- 
-  
 `;
 const Logo = styled.img`
-    width: 240px;
-    margin-bottom: 20px;
+  width: 240px;
+  margin-bottom: 20px;
 `;
 const IconWrapper = styled.div`
-  /* display: flex;
-  flex-direction: row; */
   display: inline-block;
-    position: absolute;
-    right: 50px;
-    top: 65px;
+  position: absolute;
+  right: 50px;
+  top: 65px;
 `;
 const H1 = styled.h1`
-  font-family: "Helvetica";
+  font-family: "Aboreto";
   font-weight: lighter;
-  font-size: 50px;
+  font-size: 80px;
   margin-bottom: 70px;
-  color:  black;
-  
+  color: black;
+  &:hover {
+    color: #0000ff;
+    border-radius: 20px;
+  }
 `;
 const H2 = styled.h1`
   font-family: "Helvetica";

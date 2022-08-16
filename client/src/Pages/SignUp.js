@@ -86,7 +86,7 @@ const Position = styled.div`
 `;
 
 const H1 = styled.h1`
-  font-family: "Arial";
+   font-family: 'Lexend', sans-serif;
   font-weight: lighter;
 `;
 const Contain = styled.form`

@@ -1,21 +1,28 @@
-import { useAuth0 } from "@auth0/auth0-react";
+import React from "react";
 import styled from "styled-components";
-const Logout = () => {
-  const { logout } = useAuth0();
+import { useNavigate, UseNavigate } from "react-router-dom";
 
-  return (
-    <ButtonWrapper>
-      <LogoutButton onClick={() => logout()}>Log Out</LogoutButton>
-    </ButtonWrapper>
-  );
+const SignUpButton = () => {
+  const navigate = useNavigate();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    navigate("/signup");
+
+    return (
+      <ButtonWrapper>
+        <SignUButton onClick={handleClick}>Sign Up</SignUButton>
+      </ButtonWrapper>
+    );
+  };
 };
-
 const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: right;
 `;
-const LogoutButton = styled.button`
+
+const SignUButton = styled.button`
   /* font-family: "Arial"; */
   font-family: "Lexend", sans-serif;
   font-size: 26px;
@@ -33,5 +40,4 @@ const LogoutButton = styled.button`
     border-radius: 20px;
   }
 `;
-
-export default Logout;
+export default SignUpButton;

@@ -16,66 +16,44 @@ const SideBar = () => {
   return (
     <BarWrapper>
       <Links to={{ pathname: "/me" }}>
-        {/* <Iconspan> */}
-        {/* {" "}
-          <GiAnchor />{" "} */}
-        {/* </Iconspan> */}
+        
         <Subtitles>
-          <img src={profileimage} />
+          <span> PROFILE </span>
         </Subtitles>
       </Links>
       <Links to={{ pathname: "/teachers" }}>
-        {/* <Iconspan> */}
-        {/* <GiJungle /> */}
-        {/* </Iconspan> */}
+       
         <Subtitles>
-          <img src={allusers} />
+          <span> ALL USERS </span>
         </Subtitles>
       </Links>
       <Links to={{ pathname: "/home" }}>
-        {/* <Iconspan>
-          <GiAndromedaChain /> */}
-        {/* </Iconspan> */}
+       
         <Subtitles>
-          <img src={homelabel} />
+          <span> HOME </span>
         </Subtitles>
       </Links>
     </BarWrapper>
   );
 };
 
-const BarWrapper = styled.ul`
+const BarWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   /* border-radius: 40px; */
   /* border: 3px solid #0000ff; */
-  box-shadow: 5px 10px #0000ff;
-  height: 200px;
-  width: 150px;
+  box-shadow: 5px 10px #D0D2FF;
+  height:200px;
+  width: 1040px;
   margin-right: 150px;
   margin-left: 50px;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #d0d2ff;
+  /* background-color: #d0d2ff; */
   padding-top: 20px;
   padding-right: 20px;
-  /* width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  font-family: "Tangerine";
-  font-size: 20px;
-  margin-right: 150px;
-  margin-left: 50px;
- background-color: #ffffff;
-  padding-top: 20px;
-  padding-right: 20px;
-  max-width:  */
-  /* border-radius: 40px; */
-  /* border: 3px solid #0000ff; */
-  /* box-shadow: 5px 10px #0000ff; */
-  /* background-image: {test}; */
+  
 `;
 const Iconspan = styled.span`
   padding: 2px;
@@ -91,20 +69,19 @@ const Links = styled(NavLink)`
 
   &:hover {
     background-color: #d0d2ff;
-    color: black;
+    color: #ff00ff;
     border-radius: 20px;
   }
 
   &.active {
-    color: #ff00ff;
+    color: #0000ff;
   }
 `;
 const Subtitles = styled.span`
-  font-family: Helvetica;
-  img {
-    width: 100px;
-    align-self: left;
-  }
+/* font-family: "Aboreto"; */
+ font-size: 30px;
+ font-family: 'Lexend', sans-serif;
+
 `;
 
 export default SideBar;

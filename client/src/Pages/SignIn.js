@@ -4,6 +4,9 @@ import styled from "styled-components";
 import { UserContext } from "../Context/UserContext";
 import LogIn from "../Auth0/LogIn";
 import Logout from "../Auth0/LogOut";
+import SignUpButton from "../Components/SignUpButton";
+
+
 
 const SignIn = () => {
   const { state } = useLocation();
@@ -36,19 +39,16 @@ const SignIn = () => {
   //  const {loginWithRedirect} = useAuth0()
 
   return (
-    // <Position onSubmit={handleClick}>
-    //   <H1></H1>
-    //   <Contain>
-    //     {/* <Input type="e-mail" placeholder="e-mail" required />
-    //     <Input type="text" placeholder="Password" required /> */}
+   
+    <> <LogIn /> <Logout /> 
+    <p><SignUpButton /></p> </>
+    
 
-    //     {/* <Submit type="submit" value="Log In" /> */}
+    
       
-    //   </Contain>
-    // </Position>
-      <><LogIn /><Logout /></>
   );
 };
+
 
 const Position = styled.div`
   display: flex;

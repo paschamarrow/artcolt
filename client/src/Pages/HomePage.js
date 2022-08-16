@@ -25,17 +25,6 @@ const HomePage = () => {
   const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } =
     useAuth0();
 
-  // //fetches all user data
-
-  // useEffect(() => {
-  //   fetch("/api/get-users")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       allUsers(data.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
-
   //determine who user is here
   useEffect(() => {
     console.log("is it real?", isAuthenticated);
@@ -61,11 +50,11 @@ const HomePage = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  // //link styling
-  // const linkStyle = {
-  //   textDecoration: "none",
-  //   color: "black",
-  // };
+  //link styling
+  const linkStyle = {
+    textDecoration: "none",
+    color: "black",
+  };
 
   // if (!allUsers) {
   //   return <p>Loading </p>;
@@ -133,12 +122,12 @@ const SavedPosts = styled.div`
 `;
 
 const FeedTitle = styled.h2`
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Teko";
 `;
 
 const RandomHighlight = styled.div`
   max-width: 600px;
-  font-family: "Arial";
+  font-family: "Teko";
   display: flex;
   flex-direction: row;
   /* border-radius: 20px; */
@@ -147,7 +136,7 @@ const RandomHighlight = styled.div`
   box-shadow: 5px 10px #d0d2ff;
 `;
 const HighlightsTitle = styled.h2`
-  font-family: Arial, Helvetica, sans-serif;
+   font-family: "Teko";
   img {
     width: 100px;
     align-self: left;

@@ -40,8 +40,9 @@ const AllProfiles = () => {
               <Link to={`/teachers/${user._id}`} style={linkStyle}>
                 <AllUsersList>
                   <Name>
+                  <Link to={`/teachers/${user._id}`}>
                     {user.firstName}{" "}
-                    <Link to={`/teachers/${user._id}`}>
+                    
                       <LastName>{user.lastName}</LastName>
                     </Link>
                   </Name>
@@ -62,28 +63,31 @@ const AllProfiles = () => {
 };
 
 const AllUsersHeading = styled.p`
-  font-family: "Arial";
+  font-family: "Aboreto";
+
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 
   font-weight: lighter;
-  font-size: 25px;
+  font-size: 50px;
 `;
 const AllUsersBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 500px;
+  height: 700px;
 `;
 const Name = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: 24px;
+  font-size: 36px;
   /* padding: 10px; */
-  margin-top: 10px;
-  font-family: "Arial";
+  margin-top: 30px;
+  margin-bottom: 30px;
+  /* font-family: 'Aboreto', cursive; */
+  font-family: 'Lexend', sans-serif;
   &:hover {
     color: #0000ff;
   }
@@ -102,16 +106,19 @@ const Location = styled.div`
 
 const Bio = styled.div`
   display: flex;
-  margin-top: 20px;
+  margin-top: 40px;
 `;
 
 const AllUsersList = styled.ul`
   list-style: none;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  /* font-family: 'Aboreto', cursive; */
   font-weight: lighter;
   width: 600px;
   border-top: 1px solid #ff00ff;
   height: 180px;
+  font-size: 20px;
+  
 `;
 
 const AllUsers = styled.div``;
