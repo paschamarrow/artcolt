@@ -36,37 +36,64 @@ const ProfileSummaryBox = ({ profileData }) => {
   }
 
   return (
-    <ProfileSummary>
+    <ProfileInfoWrapper>
+      <NameHeader>
+        {profileData.firstName}<p></p>
+        {profileData.lastName}
+      </NameHeader>
       <ProfileImage>
         <img src={profileData.avatarSrc} />
       </ProfileImage>
-      <NameHeader></NameHeader>
-      <PostsNumber></PostsNumber>
-      <Bio></Bio>
-      <TeachingStatement></TeachingStatement>
-    </ProfileSummary>
+
+      <Bio>
+        <h3>BIO</h3>
+        {profileData.bio}
+      </Bio>
+      <TeachingStatement>
+        <h3>Teaching Statement</h3>
+        {profileData.statement}
+      </TeachingStatement>
+    </ProfileInfoWrapper>
   );
 };
 
-const ProfileSummary = styled.div`
+const ProfileInfoWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  border: 3px solid #D3D3D3;
+  background-color:#D3D3D3;
   box-shadow: 5px 10px #0000ff;
-  height: 400px;
-  width: 300px;
-  margin-right: 150px;
-  margin-left: 50px;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #d0d2ff;
-  padding-top: 20px;
-  padding-right: 20px;
+  padding: 50px;
+  margin-top: 100px;
+  height: fit-content;
+  width: 800px;
 `;
-const ProfileImage = styled.div``;
-const NameHeader = styled.img``;
-const PostsNumber = styled.div``;
-const Bio = styled.div``;
-const TeachingStatement = styled.div``;
+const ProfileImage = styled.div`
+  img {
+    width: 300px;
+    box-shadow: 5px 10px #0000ff;
+  }
+`;
+const NameHeader = styled.h3`
+font-family: 'Edu SA Beginner', cursive;
+font-size: 30px;`
+;
+
+const Bio = styled.div`
+width: 500px;
+font-size: 26px;
+font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+h3 {
+  font-family: "Aboreto";
+}
+`;
+const TeachingStatement = styled.div`
+width: 500px;
+font-size: 26px;
+font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+h3 {
+  font-family: "Aboreto";
+}`
+;
 
 export default ProfileSummaryBox;

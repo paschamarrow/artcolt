@@ -51,13 +51,13 @@ const Profile = () => {
   };
   return (
     <>
-      <Link to={`/updateprofile/${userId}`}>Update your profile</Link>
-
+    
       <ProfilePageWrapper>
-        <SideBar />
-
         <ProfileSummaryBox profileData={profileData} />
+
         <CreatePost />
+        <Link to={`/updateprofile/${userId}`}>Update your profile</Link>
+        <PostsNumber></PostsNumber>
       </ProfilePageWrapper>
       {isAuthenticated && profileEmail === loggedUserEmail && (
         <button onClick={handleClick}>Delete Profile</button>
@@ -68,10 +68,10 @@ const Profile = () => {
 
 const ProfilePageWrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-left: 100px;
 
-  width: 1400;
+  ;
 `;
-
+const PostsNumber = styled.div``;
 export default Profile;

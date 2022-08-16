@@ -64,37 +64,41 @@ const HomePage = () => {
       {" "}
       <SideBar />
       <PageWrapper>
-      <AllPosts><FeedHeader> media FEED </FeedHeader>{!!feed && <Feed feed={feed} />}</AllPosts>
-      <FeatureWrapper>
-        
-        <FeaturedPost><FeatureHeader>FEATURED POST</FeatureHeader>{feed && <Post post={selectedPost} />}</FeaturedPost>
-      </FeatureWrapper>
+        <AllPosts>
+          <FeedHeader> media FEED </FeedHeader>
+          {!!feed && <Feed feed={feed} />}
+        </AllPosts>
+        <FeatureWrapper>
+          <FeaturedPost>
+            <FeatureHeader>FEATURED POST</FeatureHeader>
+            {feed && <Post post={selectedPost} />}
+          </FeaturedPost>
+        </FeatureWrapper>
       </PageWrapper>
       <Footer />
     </>
   );
 };
 
-
 const PageWrapper = styled.div`
-display: flex;
+  display: flex;
+  margin-left: 30px;
 `;
 
 const FeedHeader = styled.h3`
   font-family: "Aboreto";
-  justify-content:left;
-  font-size:40px;
+  justify-content: left;
+  font-size: 40px;
   display: flex;
-  `;
+`;
 
 const AllPosts = styled.div`
   width: 600px;
-  margin-left: 20px;
+  margin-left: 40px;
   height: fit-content;
   display: flex;
 
-  
-  & background-color{
+  & background-color {
     opacity: 50%;
   }
 
@@ -115,27 +119,25 @@ const FeatureWrapper = styled.div`
   margin-bottom: 100px;
   margin-top: 60px;
   padding: 50px;
-
 `;
 const FeaturedPost = styled.div`
   /* border: 10px solid black; */
   display: flex;
   height: 800px;
-  background-color: #D0D2FF;
-  
+  background-color: #d0d2ff;
+
   img {
     width: 700px;
     align-self: left;
-    
   }
 `;
 const FeatureHeader = styled.h3`
   font-family: "Aboreto";
-  justify-content:center;
-  font-size:40px;
-  margin-left:50px;
+  justify-content: center;
+  font-size: 40px;
+  margin-left: 50px;
   margin-top: 100px;
-  display: flex;`
-  ;
 
+  display: flex;
+`;
 export default HomePage;

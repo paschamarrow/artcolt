@@ -2,7 +2,6 @@ import { User } from "@auth0/auth0-react";
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { UserContext } from "../Context/UserContext";
-import postimage from "../styleimages/POST.jpg";
 
 const CreatePost = () => {
   const [postData, setPostData] = useState({});
@@ -88,7 +87,7 @@ const CreatePost = () => {
     <Wrapper>
       <CreatePostDiv>
         <CreatePostHeader>
-          <img src={postimage} />
+          <CreatePostHeader>Create Post</CreatePostHeader>
         </CreatePostHeader>
         <Form onSubmit={submitHandlerTwo}>
           <span>Image</span>
@@ -138,58 +137,50 @@ const CreatePost = () => {
 };
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* border-radius: 40px; */
-  /* border: 3px solid #0000ff; */
   box-shadow: 5px 10px #0000ff;
-  height: 400px;
-  width: 300px;
-  margin-right: 150px;
+  height: 600px;
+  width: 400px;
+  margin-right: 50px;
   margin-left: 50px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Lexend", sans-serif;
   background-color: #d0d2ff;
   padding-top: 20px;
+  padding: 10px;
   padding-right: 20px;
+  margin-top: 100px;
 `;
-
 const CreatePostHeader = styled.h3`
-  font-family: "Arial";
+  font-family: "Aboreto";
   font-style: italic;
   margin-left: 20px;
-  img {
-    width: 100px;
-    align-self: left;
-  }
-  &:hover {
-    background-color: #d0d2ff;
-    color: black;
-    border-radius: 20px;
-  }
+  font-size: 40px;
 `;
 
-const CreatePostDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+const CreatePostDiv = styled.div``;
 
 const Form = styled.form`
   display: flex;
   padding: 20px;
+  padding: 30px;
+  font-size: 20px;
   flex-direction: column;
 `;
 
 const SubmitButton = styled.button`
-  background-color: white;
-  border-radius: 10px;
-  width: 100px;
-  border: 1px white;
-  align-self: center;
-  padding: 10px;
-  margin-top: 10px;
-  margin-left: 30px;
+  font-family: "Lexend", sans-serif;
+  font-size: 26px;
+  color: black;
+  width: 310px;
+  height: 80px;
+  background-color: #ffffff;
+  border: 10px solid #d0d2ff;
+  cursor: pointer;
+  margin-top: 20px;
+  &:hover {
+    background-color: #ff00ff;
+    color: white;
+    border-radius: 20px;
+  }
 `;
 
 export default CreatePost;

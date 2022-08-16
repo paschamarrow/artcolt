@@ -60,7 +60,9 @@ const App = () => {
   return (
     <>
       <Router>
-        <NavBar />
+        <NavBar />   
+        {" "}
+    
         <Main>
           <Routes>
             <Route path="/"  element={<LandingPage />} />

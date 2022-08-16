@@ -29,18 +29,10 @@ const BarWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  /* border-radius: 40px; */
- /* border: 3px dashed black;  */
-  /* box-shadow: 5px 10px #FF00FF; */
   height: 25px;
-  /* width:1800px; */
-  /* margin-right: 150px; */
-  /* margin-left: 50px; */
-  font-family: Arial, Helvetica, sans-serif;
-  /* background-color: #d0d2ff; */
-  /* padding: 10px; */
-  /* margin-top: 20px; */
-  /* padding-bottom: 10px; */
+  margin-left: 800px;
+
+  position: absolute;
 `;
 
 const Links = styled(NavLink)`
