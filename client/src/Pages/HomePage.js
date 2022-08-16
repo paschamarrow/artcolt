@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import { UserContext } from "../Context/UserContext";
 import styled from "styled-components";
-import SideBar from "../Components/SideBar";
 import Loading from "../Components/Loading";
 import Footer from "../Components/Footer";
 import { FeedContext } from "../Context/FeedContext";
@@ -53,16 +52,19 @@ const HomePage = () => {
     color: "black",
   };
 
-  // if (!allUsers) {
-  //   return <p>Loading </p>;
-  // }
+  if (!allUsers) {
+    return <Loading />;
+  }
 
   const selectedPost = feed && feed[Math.floor(Math.random() * feed.length)];
-  console.log("selectedPost", selectedPost);
+  const selectedPostartist =
+    isAuthenticated &&
+    allUsers &&
+    allUsers.find((user) => user.email === selectedPost.email);
+
   return (
     <>
       {" "}
-      <SideBar />
       <PageWrapper>
         <AllPosts>
           <FeedHeader> media FEED </FeedHeader>
@@ -71,7 +73,12 @@ const HomePage = () => {
         <FeatureWrapper>
           <FeaturedPost>
             <FeatureHeader>FEATURED POST</FeatureHeader>
-            {feed && <Post post={selectedPost} />}
+            {feed && (
+              <Post
+                post={selectedPost}
+                selectedPostartist={selectedPostartist}
+              />
+            )}
           </FeaturedPost>
         </FeatureWrapper>
       </PageWrapper>
@@ -81,8 +88,11 @@ const HomePage = () => {
 };
 
 const PageWrapper = styled.div`
+  padding-top: 3rem;
   display: flex;
+  justify-content: center;
   margin-left: 30px;
+  background-image: linear-gradient(to right, gray, white);
 `;
 
 const FeedHeader = styled.h3`

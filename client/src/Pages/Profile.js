@@ -9,12 +9,15 @@ import Feed from "../Components/Feed";
 import ProfileSummaryBox from "../Components/ProfileSummaryBox";
 import { Link, useParams } from "react-router-dom";
 
+import Post from "../Components/Post";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Profile = () => {
   const [profileData, setProfileData] = useState(null);
   const [profileEmail, SetProfileEmail] = useState(null);
-  const { feed } = useContext(FeedContext);
+  const [feed, setFeed] = useState(null);
+  //const { feed } = useContext(FeedContext);
+
   const { userId } = useParams();
 
   const { isAuthenticated, user } = useAuth0();
@@ -35,7 +38,19 @@ const Profile = () => {
     }
   }, [userId]);
 
+  useEffect(() => {
+    fetch("/api/get-media")
+      .then((res) => res.json())
+      .then((data) => {
+        setFeed(data.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   const loggedUserEmail = isAuthenticated && user.email;
+
+  const userPosts = feed && feed.filter((post) => post.userId === userId);
+  console.log("userPosts", userPosts);
   const handleClick = () => {
     if (profileEmail === loggedUserEmail) {
       fetch(`/api/delete-user/${userId}`, {
@@ -51,27 +66,44 @@ const Profile = () => {
   };
   return (
     <>
-    
+      <TopDivider />
       <ProfilePageWrapper>
         <ProfileSummaryBox profileData={profileData} />
-
-        <CreatePost />
-        <Link to={`/updateprofile/${userId}`}>Update your profile</Link>
+        {isAuthenticated && profileEmail === user.email && (
+          <CreatePost userId={userId} />
+        )}
+        {isAuthenticated && profileEmail === loggedUserEmail && (
+          <Link to={`/updateprofile/${userId}`}>Update your profile</Link>
+        )}
         <PostsNumber></PostsNumber>
+        {isAuthenticated && profileEmail === loggedUserEmail && (
+          <button onClick={handleClick}>Delete Profile</button>
+        )}
       </ProfilePageWrapper>
-      {isAuthenticated && profileEmail === loggedUserEmail && (
-        <button onClick={handleClick}>Delete Profile</button>
-      )}
+      {userPosts &&
+        userPosts.map((userPost) => {
+          return <Post post={userPost} />;
+        })}
+      <BottomDivider />
     </>
   );
 };
 
 const ProfilePageWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-left: 100px;
+  width: 80vw;
 
-  ;
+  margin: 4rem auto;
+`;
+
+const BottomDivider = styled.div`
+  border-bottom: 1px solid red;
+`;
+const TopDivider = styled.div`
+  border-top: 1px solid red;
 `;
 const PostsNumber = styled.div``;
 export default Profile;

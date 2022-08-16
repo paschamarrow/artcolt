@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useNavigate, UseNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SignUpButton = () => {
   const navigate = useNavigate();
@@ -8,13 +8,12 @@ const SignUpButton = () => {
   const handleClick = (e) => {
     e.preventDefault();
     navigate("/signup");
-
-    return (
-      <ButtonWrapper>
-        <SignUButton onClick={handleClick}>Sign Up</SignUButton>
-      </ButtonWrapper>
-    );
   };
+  return (
+    <ButtonWrapper>
+      <SignUButton onClick={handleClick}>Sign Up</SignUButton>
+    </ButtonWrapper>
+  );
 };
 const ButtonWrapper = styled.div`
   display: flex;

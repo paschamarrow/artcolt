@@ -11,22 +11,33 @@ const Post = (props) => {
   return (
     <Wrapper>
       <TitleDiv>{props.post.title}</TitleDiv>
-      <ImageDiv><img src={props.post.url} /></ImageDiv>
+      <ImageDiv>
+        <img src={props.post.url} />
+      </ImageDiv>
       <p>{props.post.year}</p>
       <p>{props.post.materials}</p>
+
+      {props.selectedPostartist && (
+        <p>
+          {props.selectedPostartist.firstName +
+            " " +
+            props.selectedPostartist.lastName}
+        </p>
+      )}
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div``;
 const TitleDiv = styled.h3`
-font-family: 'Courier Prime', monospace;
-font-size: 20px`;
+  font-family: "Courier Prime", monospace;
+  font-size: 20px;
+`;
 const ImageDiv = styled.h3`
-
-font-size: 20px;
-img {
-  max-width: 1000px;
-}`;
+  font-size: 20px;
+  img {
+    max-width: 1000px;
+  }
+`;
 
 export default Post;

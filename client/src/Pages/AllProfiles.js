@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Loading from "../Components/Loading";
 import { UserContext } from "../Context/UserContext";
 
 const AllProfiles = () => {
@@ -11,14 +12,14 @@ const AllProfiles = () => {
 
   //fetches all user data
 
-  useEffect(() => {
-    fetch("/api/get-users")
-      .then((res) => res.json())
-      .then((data) => {
-        getUsers(data.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   fetch("/api/get-users")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       getUsers(data.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   //link styling
   const linkStyle = {
@@ -28,7 +29,7 @@ const AllProfiles = () => {
   //returning Loading
   console.log(allUsers);
   if (!allUsers) {
-    return <p>Loading </p>;
+    return <Loading />;
   }
   return (
     <>
@@ -40,10 +41,8 @@ const AllProfiles = () => {
               <Link to={`/teachers/${user._id}`} style={linkStyle}>
                 <AllUsersList>
                   <Name>
-                  <Link to={`/teachers/${user._id}`}>
-                    {user.firstName}{" "}
-                    
-                      <LastName>{user.lastName}</LastName>
+                    <Link to={`/teachers/${user._id}`}>
+                      {user.firstName} <LastName>{user.lastName}</LastName>
                     </Link>
                   </Name>
                   <ProfileImage>
@@ -57,6 +56,7 @@ const AllProfiles = () => {
             </AllUsersBox>
           );
         })}
+        <Loading />
       </AllUsers>
     </>
   );
@@ -72,6 +72,7 @@ const AllUsersHeading = styled.p`
 
   font-weight: lighter;
   font-size: 50px;
+  padding-top: 4rem;
 `;
 const AllUsersBox = styled.div`
   display: flex;
@@ -87,7 +88,7 @@ const Name = styled.div`
   margin-top: 30px;
   margin-bottom: 30px;
   /* font-family: 'Aboreto', cursive; */
-  font-family: 'Edu SA Beginner', cursive;
+  font-family: "Edu SA Beginner", cursive;
   &:hover {
     color: #0000ff;
   }
@@ -118,7 +119,6 @@ const AllUsersList = styled.ul`
   border-top: 1px solid #ff00ff;
   height: 180px;
   font-size: 20px;
-  
 `;
 
 const AllUsers = styled.div``;

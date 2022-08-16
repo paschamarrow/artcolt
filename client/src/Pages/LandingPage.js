@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { UserContext } from "../Context/UserContext";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
+import Loading from "../Components/Loading";
 
 const LandingPage = () => {
   const {
@@ -15,7 +16,7 @@ const LandingPage = () => {
   return (
     <Wrapper>
       <Contain>
-        {homeFeed &&
+        {homeFeed ? (
           homeFeed.map((post) => {
             return (
               <>
@@ -26,7 +27,10 @@ const LandingPage = () => {
                 </FeedBox>
               </>
             );
-          })}
+          })
+        ) : (
+          <Loading />
+        )}
       </Contain>
     </Wrapper>
   );
@@ -58,9 +62,9 @@ const Contain = styled.div`
   /* border-top: 3px solid #0000ff; */
   /* border-right: none; */
   /* background-color:#5C60B2; */
-  box-shadow: 5px 10px #D0D2FF;
+  box-shadow: 5px 10px #d0d2ff;
   border-bottom: 3px solid #0000ff;
-`;  
+`;
 const FeedBox = styled.div`
   display: flex;
   width: 200px;

@@ -2,11 +2,14 @@ import { User } from "@auth0/auth0-react";
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { UserContext } from "../Context/UserContext";
+import { useAuth0 } from "@auth0/auth0-react";
 
-const CreatePost = () => {
+//grabbing userId when we make a post so we can show history of each
+//user's posts
+const CreatePost = ({ userId }) => {
   const [postData, setPostData] = useState({});
   const [uploadedFile, setUploadedFile] = useState();
-
+  const { isAuthenticated, user } = useAuth0();
   const {
     state: { loggedInUser },
   } = useContext(UserContext);
@@ -39,15 +42,20 @@ const CreatePost = () => {
       body: JSON.stringify({
         ...postData,
         url: cloudinaryData.secure_url,
-        email: loggedInUser,
-        materials: cloudinaryData.materials ?? null,
+        email: user.email,
+        userId,
       }),
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
     });
-    await expressRes.json();
+    const data = await expressRes.json();
+    if (data.status === 200) {
+      window.alert("Post created!");
+      setPostData({});
+      e.target.reset();
+    }
 
     setPostData({ ...postData, url: cloudinaryData.secure_url });
   };

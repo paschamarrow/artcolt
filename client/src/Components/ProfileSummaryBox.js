@@ -4,6 +4,7 @@ import { UserContext } from "../Context/UserContext";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import Loading from "./Loading";
 
 const ProfileSummaryBox = ({ profileData }) => {
   const {
@@ -32,13 +33,14 @@ const ProfileSummaryBox = ({ profileData }) => {
   };
 
   if (!profileData) {
-    return <p>profile not found</p>;
+    return <Loading />;
   }
 
   return (
     <ProfileInfoWrapper>
       <NameHeader>
-        {profileData.firstName}<p></p>
+        {profileData.firstName}
+        <p></p>
         {profileData.lastName}
       </NameHeader>
       <ProfileImage>
@@ -60,8 +62,8 @@ const ProfileSummaryBox = ({ profileData }) => {
 const ProfileInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  border: 3px solid #D3D3D3;
-  background-color:#D3D3D3;
+  border: 3px solid #d3d3d3;
+  background-color: #d3d3d3;
   box-shadow: 5px 10px #0000ff;
   padding: 50px;
   margin-top: 100px;
@@ -75,25 +77,23 @@ const ProfileImage = styled.div`
   }
 `;
 const NameHeader = styled.h3`
-font-family: 'Edu SA Beginner', cursive;
-font-size: 30px;`
-;
-
+  font-family: "Edu SA Beginner", cursive;
+  font-size: 30px;
+`;
 const Bio = styled.div`
-width: 500px;
-font-size: 26px;
-font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-h3 {
-  font-family: "Aboreto";
-}
+  width: 500px;
+  font-size: 26px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  h3 {
+    font-family: "Aboreto";
+  }
 `;
 const TeachingStatement = styled.div`
-width: 500px;
-font-size: 26px;
-font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-h3 {
-  font-family: "Aboreto";
-}`
-;
-
+  width: 500px;
+  font-size: 26px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  h3 {
+    font-family: "Aboreto";
+  }
+`;
 export default ProfileSummaryBox;

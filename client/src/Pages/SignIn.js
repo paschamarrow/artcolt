@@ -6,8 +6,6 @@ import LogIn from "../Auth0/LogIn";
 import Logout from "../Auth0/LogOut";
 import SignUpButton from "../Components/SignUpButton";
 
-
-
 const SignIn = () => {
   const { state } = useLocation();
 
@@ -39,16 +37,19 @@ const SignIn = () => {
   //  const {loginWithRedirect} = useAuth0()
 
   return (
-   
-    <> <LogIn /> <Logout /> 
-    <p><SignUpButton /></p> </>
-    
-
-    
-      
+    <Wrapper>
+      {" "}
+      <LogIn /> <Logout />
+      <p>
+        <SignUpButton />
+      </p>{" "}
+    </Wrapper>
   );
 };
 
+const Wrapper = styled.div`
+  padding-top: 4rem;
+`;
 
 const Position = styled.div`
   display: flex;

@@ -31,6 +31,7 @@ const BarWrapper = styled.div`
   justify-content: center;
   height: 25px;
   margin-left: 800px;
+  padding-bottom: 4rem;
 
   position: absolute;
 `;

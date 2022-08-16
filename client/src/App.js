@@ -6,7 +6,7 @@ import Profile from "./Pages/Profile";
 import NavBar from "./Components/NavBar";
 import styled from "styled-components";
 import HomePage from "./Pages/HomePage";
-// import Footer from "./Components/Footer";
+import Footer from "./Components/Footer";
 import { useContext, useEffect } from "react";
 import { UserContext } from "./Context/UserContext";
 // import GlobalStyles from "./Styles/GlobalStyles";
@@ -14,8 +14,6 @@ import SignUp from "./Pages/SignUp";
 import SideBar from "./Components/SideBar";
 import LandingPage from "./Pages/LandingPage";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
-import Loading from "./Components/Loading";
-import FeedProvider from "./Context/FeedContext";
 import CurrentUserProfile from "./Pages/CurrentUserProfile";
 import UpdateProfile from "./Pages/UpdateProfile";
 
@@ -23,12 +21,20 @@ const App = () => {
   const {
     setCurrentUser,
     setHomeFeed,
-    actions: { receiveUserInfoFromServer, setError, getHomeFeed },
+    actions: { getUsers, receiveUserInfoFromServer, setError, getHomeFeed },
   } = useContext(UserContext);
 
   const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } =
     useAuth0();
 
+  useEffect(() => {
+    fetch("/api/get-users")
+      .then((res) => res.json())
+      .then((data) => {
+        getUsers(data.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   // useEffect(() => {
   //   fetch("api/get-feed")
   //     .then((res) => res.json())
@@ -60,14 +66,15 @@ const App = () => {
   return (
     <>
       <Router>
-        <NavBar />   
-        {" "}
-    
+        <NavBar />
+
         <Main>
+          <SideBar />
+          {/* <GlobalStyles /> */}
           <Routes>
-            <Route path="/"  element={<LandingPage />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/home" element={<HomePage />} />
-            <Route exact path="/me" element={<CurrentUserProfile/>} />
+            <Route exact path="/me" element={<CurrentUserProfile />} />
             <Route path="/teachers/" element={<AllProfiles />} />
             <Route path="/teachers/:userId" element={<Profile />} />
             <Route path="/updateprofile/:userId" element={<UpdateProfile />} />
