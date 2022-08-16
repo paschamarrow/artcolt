@@ -12,7 +12,7 @@ const ProfileSummaryBox = ({ profileData }) => {
     loggedInUser,
   } = useContext(UserContext);
 
-  const displayData = profileData ? profileData : loggedInUser;
+  //const profileData = profileData ? profileData : loggedInUser;
 
   //fetches all user data
 
@@ -31,14 +31,14 @@ const ProfileSummaryBox = ({ profileData }) => {
     color: "black",
   };
 
-  if (!displayData) {
+  if (!profileData) {
     return <p>profile not found</p>;
   }
 
   return (
     <ProfileSummary>
       <ProfileImage>
-        <img src={displayData.avatarSrc} />
+        <img src={profileData.avatarSrc} />
       </ProfileImage>
       <NameHeader></NameHeader>
       <PostsNumber></PostsNumber>

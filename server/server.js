@@ -10,15 +10,18 @@ const {
   deleteUser,
   updateUser,
   getUserByEmail,
-
-
-
 } = require("./handlers/Handlers");
 
-const { postMedia, getMedia, getMediaByEmail} = require("./handlers/mediaHandlers");
+const {
+  postMedia,
+  getMedia,
+  getMediaByEmail,
+} = require("./handlers/mediaHandlers");
 
 express()
   .use(express.json())
+
+  .use(express.urlencoded({ extended: true }))
   .get("/", (req, res) => {
     res.send("Hello World!");
     //change line 7 to standard res.status(200)
@@ -31,8 +34,8 @@ express()
   .post("/api/add-user", addUser)
   .post("/api/post-media", postMedia)
   .get("/api/get-mediabyemail", getMediaByEmail)
-  .delete("/api/delete-user/:userId", deleteUser)
   .patch("/api/update-user/:userId", updateUser)
+  .delete("/api/delete-user/:userId", deleteUser)
 
   //artwork and profile image endpoints
 

@@ -47,7 +47,7 @@ const getUser = async (req, res) => {
   const _id = req.params.userId;
 
   const result = await db.collection("users").findOne({ _id });
-  console.log(result);
+
   result
     ? sendResponse(res, 200, result)
     : sendResponse(res, 404, null, "user not found");
@@ -60,18 +60,23 @@ const getUserByEmail = async (req, res) => {
   await client.connect();
   const db = client.db("artcolt");
   const email = req.params.userEmail;
-  const findUser = await db.collection("users").findOne({email: email});
-  findUser?
-  res.status(200).json({status: 200, data: findUser, message: "User successfully retrieved!"})
-  : res.status(404).json({status: 404, message: "No user found with that email."})
+  const findUser = await db.collection("users").findOne({ email: email });
+  findUser
+    ? res.status(200).json({
+        status: 200,
+        data: findUser,
+        message: "User successfully retrieved!",
+      })
+    : res
+        .status(404)
+        .json({ status: 404, message: "No user found with that email." });
   client.close();
-}
+};
 
 // creates a new user
 const addUser = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
-  console.log(req.body);
-  console.log("req");
+
   const { bio, statement, location, firstName, lastName, email, avatarSrc } =
     req.body;
   const newUser = {
@@ -108,22 +113,27 @@ const addUser = async (req, res) => {
 const updateUser = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   const _id = req.params.userId;
-  const { email, bio, statement, firstName, lastName, location } = req.body;
+  //const { email, bio, statement, firstName, lastName, location } = req.body;
 
   try {
     await client.connect();
     const db = client.db("artcolt");
 
+    console.log(req.body);
     const existingUser = await db.collection("users").findOne({ _id });
     //fields are not mandatory on the update page
     const updatedUser = {
       $set: {
-        email: email ? email : existingUser.email,
-        firstName: firstName ? firstName : existingUser.firstName,
-        lastName: lastName ? lastName : existingUser.lastName,
-        statement: statement ? statement : existingUser.statement,
-        location: location ? location : existingUser.location,
-        bio: bio ? bio : existingUser.bio,
+        email: req.body.email ? req.body.email : existingUser.email,
+        firstName: req.body.firstName
+          ? req.body.firstName
+          : existingUser.firstName,
+        lastName: req.body.lastName ? req.body.lastName : existingUser.lastName,
+        statement: req.body.statement
+          ? req.body.statement
+          : existingUser.statement,
+        location: req.body.location ? req.body.location : existingUser.location,
+        bio: req.body.bio ? req.body.bio : existingUser.bio,
       },
     };
     await db.collection("users").updateOne({ _id }, updatedUser);
@@ -246,6 +256,4 @@ module.exports = {
   deleteUser,
   updateUser,
   getUserByEmail,
-
- 
 };

@@ -10,6 +10,7 @@ import saved from "../styleimages/SAVED.jpg";
 import highlights from "../styleimages/HIGHLIGHTS.jpg";
 import { FeedContext } from "../Context/FeedContext";
 import Feed from "../Components/Feed";
+import Post from "../Components/Post";
 
 const HomePage = () => {
   const {
@@ -70,21 +71,22 @@ const HomePage = () => {
   //   return <p>Loading </p>;
   // }
 
+  const selectedPost = feed && feed[Math.floor(Math.random() * feed.length)];
+  console.log("selectedPost", selectedPost);
   return (
     <>
       <HomePageUltimateWrapper>
         <SideBar />
         <FeedWrapper>
-          {!!feed && <Feed feed={feed} />}
           <SavedPosts>
-            <FeedTitle> </FeedTitle>
+            {!!feed && <Feed feed={feed} />}
+            {/* <FeedTitle> </FeedTitle> */}
           </SavedPosts>
           <HomePageWrapperTwo>
             <RandomHighlight>
-              <HighlightsTitle>
-                <img src={highlights} />{" "}
-              </HighlightsTitle>
+              <HighlightsTitle></HighlightsTitle>
             </RandomHighlight>
+            {feed && <Post post={selectedPost} />}
 
             <CurrentUserWrapper>
               <CurrentUserStuff>
@@ -112,12 +114,14 @@ const FeedWrapper = styled.div`
   display: flex;
   flex-direction: row;
 
+  border: solid 1px red;
   width: 1200px;
 `;
 const SavedPosts = styled.div`
   width: 600px;
   margin: 25px;
   padding: 44px;
+  height: fit-content;
 
   border: 3px solid #d0d2ff;
   /* background-color:#5C60B2; */
@@ -151,7 +155,7 @@ const HighlightsTitle = styled.h2`
 `;
 
 const CurrentUserWrapper = styled.div`
-  /* border: 1px solid black; */
+  border: 1px solid black;
   display: flex;
   flex-direction: row;
   /* border-radius: 20px; */
@@ -165,10 +169,11 @@ const CurrentUserWrapper = styled.div`
 `;
 
 const CurrentUserStuff = styled.h2`
+  border: 3px solid #d0d2ff;
   font-family: "Arial";
 `;
 const HomePageWrapperTwo = styled.div`
-  /* border: 1px solid black; */
+  border: 1px solid black;
 `;
 export default HomePage;
 // withAuthenticationRequired(

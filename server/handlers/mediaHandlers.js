@@ -17,7 +17,7 @@ const sendResponse = (res, status, data, message = "No message included.") => {
 };
 
 const postMedia = async (req, res) => {
-  console.log(req.body);
+ 
   try {
     const mediaObject = {
       ...req.body,
@@ -50,7 +50,7 @@ const getMediaByEmail = async (req, res) => {
     await client.connect();
     const db = client.db("artcolt");
     const email = req.query.email;
-    console.log("email", email);
+  
     const result = await db.collection("media").find({ email }).toArray();
 
     sendResponse(res, 200, result, "email post found");

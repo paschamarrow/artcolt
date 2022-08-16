@@ -15,7 +15,7 @@ import homelabel from "../styleimages/home.jpg";
 const SideBar = () => {
   return (
     <BarWrapper>
-      <Links to={{ pathname: "/teachers/me" }}>
+      <Links to={{ pathname: "/me" }}>
         {/* <Iconspan> */}
         {/* {" "}
           <GiAnchor />{" "} */}

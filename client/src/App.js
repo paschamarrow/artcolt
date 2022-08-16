@@ -16,6 +16,8 @@ import LandingPage from "./Pages/LandingPage";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import Loading from "./Components/Loading";
 import FeedProvider from "./Context/FeedContext";
+import CurrentUserProfile from "./Pages/CurrentUserProfile";
+import UpdateProfile from "./Pages/UpdateProfile";
 
 const App = () => {
   const {
@@ -61,11 +63,12 @@ const App = () => {
         <NavBar />
         <Main>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/"  element={<LandingPage />} />
             <Route path="/home" element={<HomePage />} />
-            <Route path="/teachers/me" element={<Profile/>} />
+            <Route exact path="/me" element={<CurrentUserProfile/>} />
             <Route path="/teachers/" element={<AllProfiles />} />
             <Route path="/teachers/:userId" element={<Profile />} />
+            <Route path="/updateprofile/:userId" element={<UpdateProfile />} />
 
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />

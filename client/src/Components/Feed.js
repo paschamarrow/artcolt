@@ -3,6 +3,7 @@ import DisplayProps from "./DisplayProps";
 import Post from "./Post";
 
 const Feed = ({ feed }) => {
+
   return (
     // <div>{feed.map(post => <DisplayProps post={post} />)}</div>
     <div>

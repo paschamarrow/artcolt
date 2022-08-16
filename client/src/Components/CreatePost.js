@@ -2,7 +2,7 @@ import { User } from "@auth0/auth0-react";
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { UserContext } from "../Context/UserContext";
-import postimage from "../styleimages/POST.jpg"
+import postimage from "../styleimages/POST.jpg";
 
 const CreatePost = () => {
   const [postData, setPostData] = useState({});
@@ -34,12 +34,14 @@ const CreatePost = () => {
       }
     );
     const cloudinaryData = await cloudinaryRes.json();
+    console.log(cloudinaryData);
     const expressRes = await fetch("/api/post-media", {
       method: "POST",
       body: JSON.stringify({
         ...postData,
         url: cloudinaryData.secure_url,
         email: loggedInUser,
+        materials: cloudinaryData.materials ?? null,
       }),
       headers: {
         Accept: "application/json",
@@ -85,49 +87,51 @@ const CreatePost = () => {
   return (
     <Wrapper>
       <CreatePostDiv>
-      <CreatePostHeader><img src={postimage}/></CreatePostHeader>
-      <Form onSubmit={submitHandlerTwo}>
-        <span>Image</span>
-        <input
-          type="file"
-          onChange={(event) => {
-            setUploadedFile(event.target.files);
-          }}
-        />
-        <span>Title</span>
-        <input
-          type="text"
-          name="title"
-          onChange={(e) => {
-            onChangeHandler(e);
-          }}
-        />
-        <span>Year</span>
-        <input
-          type="text"
-          name="year"
-          onChange={(e) => {
-            onChangeHandler(e);
-          }}
-        />
-        <span>Materials</span>
-        <input
-          type="text"
-          name="materials"
-          onChange={(e) => {
-            onChangeHandler(e);
-          }}
-        />
-        <span>Comments</span>
-        <input
-          type="text"
-          name="comments"
-          onChange={(e) => {
-            onChangeHandler(e);
-          }}
-        />
-        <SubmitButton>Submit</SubmitButton>
-      </Form>
+        <CreatePostHeader>
+          <img src={postimage} />
+        </CreatePostHeader>
+        <Form onSubmit={submitHandlerTwo}>
+          <span>Image</span>
+          <input
+            type="file"
+            onChange={(event) => {
+              setUploadedFile(event.target.files);
+            }}
+          />
+          <span>Title</span>
+          <input
+            type="text"
+            name="title"
+            onChange={(e) => {
+              onChangeHandler(e);
+            }}
+          />
+          <span>Year</span>
+          <input
+            type="text"
+            name="year"
+            onChange={(e) => {
+              onChangeHandler(e);
+            }}
+          />
+          <span>Materials</span>
+          <input
+            type="text"
+            name="materials"
+            onChange={(e) => {
+              onChangeHandler(e);
+            }}
+          />
+          <span>Comments</span>
+          <input
+            type="text"
+            name="comments"
+            onChange={(e) => {
+              onChangeHandler(e);
+            }}
+          />
+          <SubmitButton>Submit</SubmitButton>
+        </Form>
       </CreatePostDiv>
     </Wrapper>
   );
@@ -146,44 +150,46 @@ const Wrapper = styled.div`
   margin-right: 150px;
   margin-left: 50px;
   font-family: Arial, Helvetica, sans-serif;
-  background-color:#D0D2FF;
+  background-color: #d0d2ff;
   padding-top: 20px;
   padding-right: 20px;
 `;
 
-const CreatePostHeader= styled.h3`
+const CreatePostHeader = styled.h3`
   font-family: "Arial";
   font-style: italic;
   margin-left: 20px;
   img {
     width: 100px;
     align-self: left;
-}
-&:hover {
-    background-color: #D0D2FF;
+  }
+  &:hover {
+    background-color: #d0d2ff;
     color: black;
     border-radius: 20px;
   }
 `;
 
 const CreatePostDiv = styled.div`
-display: flex;
-flex-direction: column`;
+  display: flex;
+  flex-direction: column;
+`;
 
 const Form = styled.form`
-display: flex;
-padding: 20px;
-flex-direction: column`;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+`;
 
 const SubmitButton = styled.button`
-background-color: white;
-border-radius: 10px;
-width: 100px;
-border: 1px white;
-align-self: center;
-padding: 10px;
-margin-top: 10px;
-margin-left: 30px;
-`
+  background-color: white;
+  border-radius: 10px;
+  width: 100px;
+  border: 1px white;
+  align-self: center;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 30px;
+`;
 
 export default CreatePost;
