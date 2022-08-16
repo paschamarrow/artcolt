@@ -1,36 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  GiJungle,
-  GiAbstract079,
-  GiAndromedaChain,
-  GiAnchor,
-} from "react-icons/gi";
 import { NavLink } from "react-router-dom";
-import profileimage from "../styleimages/profileheader.jpg";
-import allusers from "../styleimages/allusers.jpg";
-import homelabel from "../styleimages/home.jpg";
 
-// import test from "../styleimages/3layerscrop.jpg";
 const SideBar = () => {
   return (
     <BarWrapper>
+      <Links to={{ pathname: "/home" }}>
+        <Subtitles>
+          <span> HOME </span>
+        </Subtitles>
+      </Links>
       <Links to={{ pathname: "/me" }}>
-        
         <Subtitles>
           <span> PROFILE </span>
         </Subtitles>
       </Links>
       <Links to={{ pathname: "/teachers" }}>
-       
         <Subtitles>
           <span> ALL USERS </span>
-        </Subtitles>
-      </Links>
-      <Links to={{ pathname: "/home" }}>
-       
-        <Subtitles>
-          <span> HOME </span>
         </Subtitles>
       </Links>
     </BarWrapper>
@@ -43,22 +30,19 @@ const BarWrapper = styled.div`
   align-items: center;
   justify-content: center;
   /* border-radius: 40px; */
-  /* border: 3px solid #0000ff; */
-  box-shadow: 5px 10px #D0D2FF;
-  height:200px;
-  width: 1040px;
-  margin-right: 150px;
-  margin-left: 50px;
+ /* border: 3px dashed black;  */
+  /* box-shadow: 5px 10px #FF00FF; */
+  height: 25px;
+  /* width:1800px; */
+  /* margin-right: 150px; */
+  /* margin-left: 50px; */
   font-family: Arial, Helvetica, sans-serif;
   /* background-color: #d0d2ff; */
-  padding-top: 20px;
-  padding-right: 20px;
-  
+  /* padding: 10px; */
+  /* margin-top: 20px; */
+  /* padding-bottom: 10px; */
 `;
-const Iconspan = styled.span`
-  padding: 2px;
-  width: 40px;
-`;
+
 const Links = styled(NavLink)`
   text-decoration: none;
   color: black;
@@ -78,10 +62,8 @@ const Links = styled(NavLink)`
   }
 `;
 const Subtitles = styled.span`
-/* font-family: "Aboreto"; */
- font-size: 30px;
- font-family: 'Lexend', sans-serif;
-
+  font-size: 35px;
+  font-family: "Edu SA Beginner", cursive;
 `;
 
 export default SideBar;

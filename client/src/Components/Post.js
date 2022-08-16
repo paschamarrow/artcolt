@@ -10,8 +10,8 @@ import styled from "styled-components";
 const Post = (props) => {
   return (
     <Wrapper>
-      <p>{props.post.title}</p>
-      <img src={props.post.url} />
+      <TitleDiv>{props.post.title}</TitleDiv>
+      <ImageDiv><img src={props.post.url} /></ImageDiv>
       <p>{props.post.year}</p>
       <p>{props.post.materials}</p>
     </Wrapper>
@@ -19,4 +19,14 @@ const Post = (props) => {
 };
 
 const Wrapper = styled.div``;
+const TitleDiv = styled.h3`
+font-family: 'Courier Prime', monospace;
+font-size: 20px`;
+const ImageDiv = styled.h3`
+
+font-size: 20px;
+img {
+  max-width: 1000px;
+}`;
+
 export default Post;

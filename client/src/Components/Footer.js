@@ -83,13 +83,15 @@ const FooterDiv = styled.div`
 
   height: 280px;
   width: 100%;
+  border-bottom: 2px solid #0000ff;
 
   background-color: #0000ff;
+  
   position: relative;
   bottom: 0;
   left: 0;
   right: 0;
-  color: #fff;
+  color: black;
 `;
 const Upperdiv = styled.div`
   display: flex;
@@ -105,10 +107,12 @@ const Upperdiv = styled.div`
   margin: 50px;
   padding: 10px;
   div h4 {
-    color: #ccc;
+    color: #ffffff;
+   font-family: "Aboreto";
+   font-size: 20px;
   }
   div a {
-    color: white;
+    color: #cccd;
     text-decoration: none;
     font-size: 14px;
     &:hover {

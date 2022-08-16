@@ -2,12 +2,9 @@ import React, { useContext, useEffect } from "react";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import { UserContext } from "../Context/UserContext";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import SideBar from "../Components/SideBar";
 import Loading from "../Components/Loading";
 import Footer from "../Components/Footer";
-import saved from "../styleimages/SAVED.jpg";
-import highlights from "../styleimages/HIGHLIGHTS.jpg";
 import { FeedContext } from "../Context/FeedContext";
 import Feed from "../Components/Feed";
 import Post from "../Components/Post";
@@ -64,116 +61,81 @@ const HomePage = () => {
   console.log("selectedPost", selectedPost);
   return (
     <>
-      <HomePageUltimateWrapper>
-        <SideBar />
-        <FeedWrapper>
-          <SavedPosts>
-            {!!feed && <Feed feed={feed} />}
-            {/* <FeedTitle> </FeedTitle> */}
-          </SavedPosts>
-          <HomePageWrapperTwo>
-            <RandomHighlight>
-              <HighlightsTitle></HighlightsTitle>
-            </RandomHighlight>
-            {feed && <Post post={selectedPost} />}
-
-            <CurrentUserWrapper>
-              <CurrentUserStuff>
-                <img src={saved} />
-              </CurrentUserStuff>
-            </CurrentUserWrapper>
-          </HomePageWrapperTwo>
-        </FeedWrapper>
-      </HomePageUltimateWrapper>
+      {" "}
+      <SideBar />
+      <PageWrapper>
+      <AllPosts><FeedHeader> media FEED </FeedHeader>{!!feed && <Feed feed={feed} />}</AllPosts>
+      <FeatureWrapper>
+        
+        <FeaturedPost><FeatureHeader>FEATURED POST</FeatureHeader>{feed && <Post post={selectedPost} />}</FeaturedPost>
+      </FeatureWrapper>
+      </PageWrapper>
       <Footer />
     </>
   );
 };
 
-const HomePageUltimateWrapper = styled.div`
-  /* display: grid; */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  overflow-y: scroll;
-  width: 1400;
-  margin-left: 100px;
-`;
-const FeedWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
 
-  border: solid 1px red;
-  width: 1200px;
+const PageWrapper = styled.div`
+display: flex;
 `;
-const SavedPosts = styled.div`
+
+const FeedHeader = styled.h3`
+  font-family: "Aboreto";
+  justify-content:left;
+  font-size:40px;
+  display: flex;
+  `;
+
+const AllPosts = styled.div`
   width: 600px;
-  margin: 25px;
-  padding: 44px;
+  margin-left: 20px;
   height: fit-content;
-
-  border: 3px solid #d0d2ff;
-  /* background-color:#5C60B2; */
-  box-shadow: 5px 10px #d0d2ff;
-  img {
-    width: 100px;
-    align-self: left;
-  }
-`;
-
-const FeedTitle = styled.h2`
-  font-family: "Teko";
-`;
-
-const RandomHighlight = styled.div`
-  max-width: 600px;
-  font-family: "Teko";
   display: flex;
-  flex-direction: row;
-  /* border-radius: 20px; */
-  /* border: 3px solid #0000ff; */
-  /* background-color:#5C60B2; */
-  box-shadow: 5px 10px #d0d2ff;
-`;
-const HighlightsTitle = styled.h2`
-   font-family: "Teko";
+
+  
+  & background-color{
+    opacity: 50%;
+  }
+
   img {
-    width: 100px;
+    width: 400px;
     align-self: left;
+    border: 0.5px dashed black;
   }
 `;
 
-const CurrentUserWrapper = styled.div`
-  border: 1px solid black;
+const FeatureWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  /* border-radius: 20px; */
-  /* border: 3px solid #0000ff; */
-  /* background-color:#5C60B2; */
-  box-shadow: 5px 10px #d0d2ff;
+  flex-direction: column;
+  /* border: solid 3px #ff00ff; */
+  width: 1000px;
+  padding: 50px;
+  margin-left: 50px;
+  margin-bottom: 100px;
+  margin-top: 60px;
+  padding: 50px;
+
+`;
+const FeaturedPost = styled.div`
+  /* border: 10px solid black; */
+  display: flex;
+  height: 800px;
+  background-color: #D0D2FF;
+  
   img {
-    width: 100px;
+    width: 700px;
     align-self: left;
+    
   }
 `;
+const FeatureHeader = styled.h3`
+  font-family: "Aboreto";
+  justify-content:center;
+  font-size:40px;
+  margin-left:50px;
+  margin-top: 100px;
+  display: flex;`
+  ;
 
-const CurrentUserStuff = styled.h2`
-  border: 3px solid #d0d2ff;
-  font-family: "Arial";
-`;
-const HomePageWrapperTwo = styled.div`
-  border: 1px solid black;
-`;
 export default HomePage;
-// withAuthenticationRequired(
-// , {
-//   //show a message white the user waits to be redirected to the login page
-
-//   onRedirecting: () => {
-//     return (
-//       <div>
-//         <Loading />
-//       </div>
-//     );
-//   },
-// });

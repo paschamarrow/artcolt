@@ -87,7 +87,7 @@ const Name = styled.div`
   margin-top: 30px;
   margin-bottom: 30px;
   /* font-family: 'Aboreto', cursive; */
-  font-family: 'Lexend', sans-serif;
+  font-family: 'Edu SA Beginner', cursive;
   &:hover {
     color: #0000ff;
   }
