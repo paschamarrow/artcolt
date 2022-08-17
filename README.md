@@ -14,7 +14,7 @@ Demo website: I have 6 real visual art educators on the mock website including m
 Features: 
 
 1) Users have secure sign-up with Auth0.
-2) Users can edit their profile, delete their profile and create media posts that are posted immediately and stored in MongoDB as well as Cloudinary API.
+2) Users can edit (i.e.update) their profile, delete their profile and create media posts that are posted immediately and stored in MongoDB as well as Cloudinary API.
 3) Users can continually see new posts added to their HomePage.
 4) There is a featured artist/educator post that refreshes on each browser refresh of the site/home page.
 
