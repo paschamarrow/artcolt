@@ -42,11 +42,13 @@ const ProfileSummaryBox = ({ profileData }) => {
       <Bio>
         <h3>BIO</h3>
         {profileData.bio}
+        
       </Bio>
       <TeachingStatement>
         <h3>Teaching Statement</h3>
         {profileData.statement}
       </TeachingStatement>
+      <h3>EMAIL</h3><span>{" "}+ {profileData.email} </span>
     </ProfileInfoWrapper>
   );
 };
@@ -81,6 +83,9 @@ const Bio = styled.div`
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   h3 {
     font-family: "Aboreto";
+  }
+  span {
+    font-family: 'Courier New', Courier, monospace;
   }
 `;
 const TeachingStatement = styled.div`
