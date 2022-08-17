@@ -75,7 +75,7 @@ const Profile = () => {
         {isAuthenticated && profileEmail === loggedUserEmail && (
           <Link to={`/updateprofile/${userId}`}>Update your profile</Link>
         )}
-        <p></p>
+        
         {isAuthenticated && profileEmail === loggedUserEmail && (
           <button onClick={handleClick}>Delete Profile</button>
         )}
