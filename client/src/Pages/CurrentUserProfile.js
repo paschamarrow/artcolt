@@ -8,8 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const CurrentUserProfile = () => {
   const [profileData, setProfileData] = useState(null);
   const { isAuthenticated, user } = useAuth0();
-  const currentUser = "2194c5f9-f806-47b5-a27b-5c3f3a860a3a"
-  
+  const currentUser = "ce540053-20af-4781-9687-d6fdf7f22a78";
 
   const currentUserEmail = "paschamarrow@gmail.com";
   useEffect(() => {
@@ -25,7 +24,6 @@ const CurrentUserProfile = () => {
       <ProfileSummaryBox profileData={profileData} />
       {isAuthenticated && currentUserEmail === user.email && <CreatePost />}
     </ProfilePageWrapper>
-    
   );
 };
 
