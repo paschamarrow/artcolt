@@ -94,6 +94,7 @@ const PageWrapper = styled.div`
   margin-left: 30px;
   margin-top: 20px;
   background-image: linear-gradient(to right, gray, white);
+  
 `;
 
 const FeedHeader = styled.h3`
@@ -123,7 +124,7 @@ const AllPosts = styled.div`
 const FeatureWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1000px;
+  width: 900px;
   padding: 50px;
   margin-left: 50px;
   margin-bottom: 100px;
@@ -146,7 +147,7 @@ const FeatureHeader = styled.h3`
   font-size: 40px;
   margin-left: 50px;
   margin-top: 100px;
-
   display: flex;
+  flex-direction: column;
 `;
 export default HomePage;

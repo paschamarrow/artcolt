@@ -74,7 +74,7 @@ const Profile = () => {
         <OptionsWrapper>
           <span>
         {isAuthenticated && profileEmail === loggedUserEmail && (
-          <Link to={`/updateprofile/${userId}`}>Update</Link>
+          <Link to={`/updateprofile/${userId}`}>Update Profile</Link>
         )}
         </span>
         {isAuthenticated && profileEmail === loggedUserEmail && (
@@ -85,12 +85,13 @@ const Profile = () => {
       </ProfilePageWrapper>
       <BottomDivider />
       <TitlePosts>User Posts</TitlePosts>
+      
         {userPosts &&
           userPosts.map((userPost) => {
             return <Post post={userPost} />;
           })}
       
-      <PostHistory />
+      {/* <PostHistory /> */}
     </>
   );
 };
@@ -108,23 +109,27 @@ const ProfilePageWrapper = styled.div`
   ;
 const OptionsWrapper = styled.div`
  border: 5px dashed #d0d2ff;
+ display: flex;
+ justify-content: flex-end;
+ flex-direction: column;
+ position: absolute;
+ bottom: 20px;
   span {
     
     /* font-family: "Lexend", sans-serif; */
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 18px;
+    font-family: "Edu SA Beginner", cursive;
+    font-size: 26px;
     font-style: italic;
     color: black;
     width: 140px;
     height: 60px;
-    margin-left: 40px;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     /* border: 5px dashed #d0d2ff; */
     cursor: pointer;
     &:hover {
-      background-color: #D0D2FF;
+      /* background-color: #D0D2FF; */
       opacity: 70%;
-      color: black;
+      color: #0000ff;
       border-radius: 20px;
     }
   }
@@ -134,15 +139,14 @@ const OptionsWrapper = styled.div`
     font-size: 18px;
     font-style: italic;
     color: black;
-    width: 150px;
+    width: 140px;
     height: 60px;
-   
-    background-color: #ffffff;
-    border: 5px dashed #d0d2ff;
+    /* background-color: #ffffff; */
+    /* border: 5px dashed #d0d2ff; */
     cursor: pointer;
 
     &:hover {
-      background-color: #ff00ff;
+      /* background-color: #ff00ff; */
       opacity: 70%;
       color: #0000ff;
       border-radius: 20px;
@@ -151,7 +155,7 @@ const OptionsWrapper = styled.div`
 `;
 
 const BottomDivider = styled.div`
-  border-bottom: 1px solid black;
+  
   padding: 20px;
   margin-bottom: 40px;
 `;
@@ -159,10 +163,11 @@ const BottomDivider = styled.div`
 const TitlePosts = styled.span`
   font-family: "Aboreto";
   font-style: italic;
-  margin-left: 20px;
+  margin-left: 80px;
   font-size: 40px;
-  padding: 50px;
-  margin-top: 50px;
+  /* padding: 50px; */
+  margin-top: 80px;
+  margin-bottom: 80px;
   
 `;
 const PostHistory = styled.div`
@@ -172,8 +177,8 @@ const PostHistory = styled.div`
   padding: 50px;
   margin-left: 50px;
   margin-bottom: 100px;
-  margin-top: 80px;
-  padding: 50px;
+  margin-top: 100px;
+  
   border: 2px solid black;
 
   img {

@@ -25,6 +25,7 @@ const CurrentUserProfile = () => {
       <ProfileSummaryBox profileData={profileData} />
       {isAuthenticated && currentUserEmail === user.email && <CreatePost />}
     </ProfilePageWrapper>
+    
   );
 };
 
