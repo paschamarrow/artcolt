@@ -75,15 +75,17 @@ const Profile = () => {
         {isAuthenticated && profileEmail === loggedUserEmail && (
           <Link to={`/updateprofile/${userId}`}>Update your profile</Link>
         )}
-        
+
         {isAuthenticated && profileEmail === loggedUserEmail && (
           <button onClick={handleClick}>Delete Profile</button>
         )}
       </ProfilePageWrapper>
-      {userPosts &&
-        userPosts.map((userPost) => {
-          return <PostDiv post={userPost} />;
-        })}
+      <PostHistory>
+        {userPosts &&
+          userPosts.map((userPost) => {
+            return <PostDiv post={userPost} />;
+          })}
+      </PostHistory>
       <BottomDivider />
     </>
   );
@@ -120,14 +122,24 @@ const ProfilePageWrapper = styled.div`
   }
 `;
 
-
 const BottomDivider = styled.div`
   border-bottom: 1px solid black;
 `;
-const TopDivider = styled.div`
-  /* border-top: 1px solid red; */
+const PostHistory = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  padding: 50px;
+  margin-left: 50px;
+  margin-bottom: 100px;
+  margin-top: 60px;
+  padding: 50px;
 `;
+
 const PostDiv = styled.div`
+  display: flex;
+  height: 800px;
+  background-color: #d0d2ff;
   img {
     width: 300px;
     box-shadow: 5px 10px #0000ff;

@@ -123,7 +123,6 @@ const AllPosts = styled.div`
 const FeatureWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* border: solid 3px #ff00ff; */
   width: 1000px;
   padding: 50px;
   margin-left: 50px;
