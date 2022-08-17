@@ -28,10 +28,12 @@ const ProfileSummaryBox = ({ profileData }) => {
 
   return (
     <ProfileInfoWrapper>
+      <h3>PROFILE</h3>
       <NameHeader>
         {profileData.firstName}
         <p></p>
         {profileData.lastName}
+
       </NameHeader>
       <ProfileImage>
         <img src={profileData.avatarSrc} />
@@ -59,6 +61,9 @@ const ProfileInfoWrapper = styled.div`
   margin-top: 100px;
   height: fit-content;
   width: 800px;
+  h3 {
+    font-family: "Aboreto";
+  }
 `;
 const ProfileImage = styled.div`
   img {
@@ -66,7 +71,7 @@ const ProfileImage = styled.div`
     box-shadow: 5px 10px #0000ff;
   }
 `;
-const NameHeader = styled.h3`
+const NameHeader = styled.h2`
   font-family: "Edu SA Beginner", cursive;
   font-size: 30px;
 `;

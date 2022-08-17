@@ -17,6 +17,9 @@ const Post = (props) => {
       <p>{props.post.year}</p>
       <p>{props.post.materials}</p>
 
+      {props.selectedPostartist.firstName +
+            " " +
+            props.selectedPostartist.lastName}
       {props.selectedPostartist && (
         <p>
           {props.selectedPostartist.firstName +
@@ -37,6 +40,9 @@ const ImageDiv = styled.h3`
   font-size: 20px;
   img {
     max-width: 1000px;
+  }
+  p {
+    font-family:"Courier Prime", monospace;
   }
 `;
 

@@ -9,6 +9,7 @@ const CurrentUserProfile = () => {
   const [profileData, setProfileData] = useState(null);
   const { isAuthenticated, user } = useAuth0();
   const currentUser = "2194c5f9-f806-47b5-a27b-5c3f3a860a3a"
+  
 
   const currentUserEmail = "paschamarrow@gmail.com";
   useEffect(() => {
@@ -22,7 +23,7 @@ const CurrentUserProfile = () => {
   return (
     <ProfilePageWrapper>
       <ProfileSummaryBox profileData={profileData} />
-      {currentUserEmail === user.email && <CreatePost />}
+      {isAuthenticated && currentUserEmail === user.email && <CreatePost />}
     </ProfilePageWrapper>
   );
 };

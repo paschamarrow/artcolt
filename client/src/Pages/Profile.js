@@ -66,27 +66,31 @@ const Profile = () => {
   };
   return (
     <>
-      <TopDivider />
       <ProfilePageWrapper>
         <ProfileSummaryBox profileData={profileData} />
         {isAuthenticated && profileEmail === user.email && (
           <CreatePost userId={userId} />
         )}
+        <OptionsWrapper>
+          <span>
         {isAuthenticated && profileEmail === loggedUserEmail && (
-          <Link to={`/updateprofile/${userId}`}>Update your profile</Link>
+          <Link to={`/updateprofile/${userId}`}>Update</Link>
         )}
-
+        </span>
         {isAuthenticated && profileEmail === loggedUserEmail && (
           <button onClick={handleClick}>Delete Profile</button>
         )}
+        
+        </OptionsWrapper>
       </ProfilePageWrapper>
-      <PostHistory>
+      <BottomDivider />
+      <TitlePosts>User Posts</TitlePosts>
         {userPosts &&
           userPosts.map((userPost) => {
-            return <PostDiv post={userPost} />;
+            return <Post post={userPost} />;
           })}
-      </PostHistory>
-      <BottomDivider />
+      
+      <PostHistory />
     </>
   );
 };
@@ -100,19 +104,43 @@ const ProfilePageWrapper = styled.div`
   margin: 4rem auto;
   font-family: "Lexend", sans-serif;
   font-style: italic;
-  font-size: 30px;
+  font-size: 30px;`
+  ;
+const OptionsWrapper = styled.div`
+ border: 5px dashed #d0d2ff;
+  span {
+    
+    /* font-family: "Lexend", sans-serif; */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    font-style: italic;
+    color: black;
+    width: 140px;
+    height: 60px;
+    margin-left: 40px;
+    background-color: #ffffff;
+    /* border: 5px dashed #d0d2ff; */
+    cursor: pointer;
+    &:hover {
+      background-color: #D0D2FF;
+      opacity: 70%;
+      color: black;
+      border-radius: 20px;
+    }
+  }
 
   button {
-    font-family: "Lexend", sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 18px;
     font-style: italic;
     color: black;
     width: 150px;
     height: 60px;
-
+   
     background-color: #ffffff;
-    border: 10px solid #d0d2ff;
+    border: 5px dashed #d0d2ff;
     cursor: pointer;
+
     &:hover {
       background-color: #ff00ff;
       opacity: 70%;
@@ -124,6 +152,18 @@ const ProfilePageWrapper = styled.div`
 
 const BottomDivider = styled.div`
   border-bottom: 1px solid black;
+  padding: 20px;
+  margin-bottom: 40px;
+`;
+
+const TitlePosts = styled.span`
+  font-family: "Aboreto";
+  font-style: italic;
+  margin-left: 20px;
+  font-size: 40px;
+  padding: 50px;
+  margin-top: 50px;
+  
 `;
 const PostHistory = styled.div`
   display: flex;
@@ -132,17 +172,23 @@ const PostHistory = styled.div`
   padding: 50px;
   margin-left: 50px;
   margin-bottom: 100px;
-  margin-top: 60px;
+  margin-top: 80px;
   padding: 50px;
+  border: 2px solid black;
+
+  img {
+    width: fit-content;
+    height: 400px;
+    border: 2px dashed black;
+  }
 `;
 
 const PostDiv = styled.div`
   display: flex;
-  height: 800px;
-  background-color: #d0d2ff;
-  img {
-    width: 300px;
-    box-shadow: 5px 10px #0000ff;
-  }
+  height: fit-content;
+  box-shadow: 5px 10px #0000ff;
+  border: 2px dashed black;
+
+ 
 `;
 export default Profile;

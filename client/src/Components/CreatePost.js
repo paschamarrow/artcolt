@@ -60,6 +60,7 @@ const CreatePost = ({ userId }) => {
     setPostData({ ...postData, url: cloudinaryData.secure_url });
   };
 
+  //keeping this first handler i wrote for reference, changed it to await for better reliability
   // const submitHandler = (e) => {
   //   e.preventDefault();
 
