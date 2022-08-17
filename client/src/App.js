@@ -35,25 +35,7 @@ const App = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-  // useEffect(() => {
-  //   fetch("api/get-feed")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setHomeFeed(data);
-  //     })
-  //     .catch(() => {
-  //       setError(true);
-  //     });
-  // }, []);
 
-  // useEffect(() => {
-  //   fetch("/get-profiles")
-  //     .then((something) => something.json())
-  //     .then((data) => {
-  //       setCurrentUser(data);
-  //       receiveUserInfoFromServer(data);
-  //     });
-  // }, []);
   useEffect(() => {
     fetch("/api/get-media")
       .then((something) => something.json())

@@ -10,16 +10,6 @@ const AllProfiles = () => {
     actions: { getUsers },
   } = useContext(UserContext);
 
-  //fetches all user data
-
-  // useEffect(() => {
-  //   fetch("/api/get-users")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       getUsers(data.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
 
   //link styling
   const linkStyle = {
@@ -78,7 +68,7 @@ const AllUsersBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 700px;
+  height: 740px;
 `;
 const Name = styled.div`
   display: flex;

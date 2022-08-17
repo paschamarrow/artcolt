@@ -54,8 +54,9 @@ const SignUp = () => {
 
 
   return (
+    <Wrapper>
     <Position onSubmit={handleSubmit}>
-      <H1>SIGN UP</H1>
+      <H1>JOIN ARTCOLT</H1>
       <Contain>
         <Input type="text" placeholder="First Name" required />
         <Input type="text" placeholder="Last Name" required />
@@ -72,11 +73,25 @@ const SignUp = () => {
         Profile Image</span>
         <Submit type="submit" value="Confirm Sign-Up" />
       </Contain>
-      <Footer/>
+      
     </Position>
-    
+    <Footer/>
+    </Wrapper>
+   
   );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-top: 40px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  width: 900 px;
+ 
+`;
 
 const Position = styled.div`
   display: flex;
@@ -97,6 +112,7 @@ const Contain = styled.form`
   font-family: "Arial";
   font-weight: lighter;
   margin-bottom: 20px;
+  background-image: linear-gradient(to right, white, #D0D2FF);
 `;
 const Input = styled.input`
   height: 40px;
@@ -106,6 +122,7 @@ const Input = styled.input`
   font-family: "Arial";
   font-size: 17px;
   font-weight: lighter;
+  font-family: "Lexend", sans-serif;
   &:focus {
     outline: 2px solid #0000ff;
     border-radius: 1px;
@@ -113,6 +130,9 @@ const Input = styled.input`
 `;
 const Submit = styled.input`
   background-color: #0000ff;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  margin-top: 20px;
   border: none;
   border-radius: 1px;
   height: 40px;
@@ -120,10 +140,11 @@ const Submit = styled.input`
   font-family: "Arial";
   font-weight: lighter;
   font-size: 18px;
+  font-family: "Lexend", sans-serif;
   color: white;
   cursor: pointer;
   &:hover {
-    background-color: #5C60B2;
+    background-color: #FF00FF;
     transition: 0.7s;
   }
 `;

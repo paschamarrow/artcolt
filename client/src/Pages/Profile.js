@@ -75,14 +75,14 @@ const Profile = () => {
         {isAuthenticated && profileEmail === loggedUserEmail && (
           <Link to={`/updateprofile/${userId}`}>Update your profile</Link>
         )}
-        <PostsNumber></PostsNumber>
+        <p></p>
         {isAuthenticated && profileEmail === loggedUserEmail && (
           <button onClick={handleClick}>Delete Profile</button>
         )}
       </ProfilePageWrapper>
       {userPosts &&
         userPosts.map((userPost) => {
-          return <Post post={userPost} />;
+          return <PostDiv post={userPost} />;
         })}
       <BottomDivider />
     </>
@@ -95,15 +95,42 @@ const ProfilePageWrapper = styled.div`
   justify-content: center;
   margin-left: 100px;
   width: 80vw;
-
   margin: 4rem auto;
+  font-family: "Lexend", sans-serif;
+  font-style: italic;
+  font-size: 30px;
+
+  button {
+    font-family: "Lexend", sans-serif;
+    font-size: 18px;
+    font-style: italic;
+    color: black;
+    width: 150px;
+    height: 60px;
+
+    background-color: #ffffff;
+    border: 10px solid #d0d2ff;
+    cursor: pointer;
+    &:hover {
+      background-color: #ff00ff;
+      opacity: 70%;
+      color: #0000ff;
+      border-radius: 20px;
+    }
+  }
 `;
+
 
 const BottomDivider = styled.div`
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid black;
 `;
 const TopDivider = styled.div`
-  border-top: 1px solid red;
+  /* border-top: 1px solid red; */
 `;
-const PostsNumber = styled.div``;
+const PostDiv = styled.div`
+  img {
+    width: 300px;
+    box-shadow: 5px 10px #0000ff;
+  }
+`;
 export default Profile;

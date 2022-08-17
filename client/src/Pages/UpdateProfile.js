@@ -97,16 +97,56 @@ const UpdateProfile = () => {
 };
 
 const Wrapper = styled.div`
-  width: 90vw;
-  margin: 0rem auto;
-  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-top: 90px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 
   form {
-    width: 50vw;
+    width: 90vw;
+    padding: 80px;
+
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     justify-content: center;
+    font-family: "Aboreto";
+    border-color: lightgrey;
+    color: black;
+
+    background-image: linear-gradient(to right, white, blue);
+    &:focus {
+      outline: 4px solid #ff00ff;
+      border-radius: 1px;
+    }
+  }
+
+  input {
+    width: 90vh;
+    height: 5vh;
+  }
+
+  button {
+    width: 30vh;
+
+    background-color: #0000ff;
+    border: none;
+    border-radius: 1px;
+    height: 40px;
+    width: 500px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    &:hover {
+      background-color: #9f8c76;
+      transition: 0.7s;
+    }
   }
 `;
 export default UpdateProfile;

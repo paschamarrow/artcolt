@@ -15,16 +15,6 @@ const ProfileSummaryBox = ({ profileData }) => {
 
   //const profileData = profileData ? profileData : loggedInUser;
 
-  //fetches all user data
-
-  // useEffect(() => {
-  //   fetch(`/api/get-user/${userId}`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       getUser(data.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
 
   //link styling
   const linkStyle = {

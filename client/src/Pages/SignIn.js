@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../Context/UserContext";
-import LogIn from "../Auth0/LogIn";
-import Logout from "../Auth0/LogOut";
-import SignUpButton from "../Components/SignUpButton";
-
+import LogIn from "../SignIn/LogIn";
+import Logout from "../SignIn/LogOut";
+import SignUpButton from "../SignIn/SignUpButton";
+import Footer
+ from "../Components/Footer";
 const SignIn = () => {
   const { state } = useLocation();
 
@@ -39,11 +40,10 @@ const SignIn = () => {
   return (
     <Wrapper>
       {" "}
-      <LogIn /> <Logout />
-      <p>
-        <SignUpButton />
-      </p>{" "}
+      <SignUpButton /> <LogIn /> <Logout />
+      <Footer />
     </Wrapper>
+   
   );
 };
 
@@ -53,7 +53,7 @@ const Wrapper = styled.div`
 
 const Position = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   margin-bottom: 200px;
 `;

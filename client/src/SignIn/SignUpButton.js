@@ -10,6 +10,7 @@ const SignUpButton = () => {
     navigate("/signup");
   };
   return (
+    
     <ButtonWrapper>
       <SignUButton onClick={handleClick}>Sign Up</SignUButton>
     </ButtonWrapper>
@@ -18,7 +19,7 @@ const SignUpButton = () => {
 const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: right;
+  align-items: center;
 `;
 
 const SignUButton = styled.button`

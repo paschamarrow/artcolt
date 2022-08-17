@@ -22,21 +22,13 @@ const Footer = () => {
         </div>
         <div>
           <h4>Manage Account</h4>
-          <a href="/join">Join</a>
+          <a href="/join">Join ARTCOLT</a>
           <p>FAQ</p>
           <p>Log-In</p>
           <p>Contact Support</p>
         </div>
         <div>
-          <h4>News & Interviews </h4>
-          <a href="/signup">Newsletter sign up</a>
-          <a href="https://www.parl.ca/DocumentViewer/en/44-1/bill/C-27/first-reading">
-            Canada's Consumer Privacy Act
-          </a>
-        </div>
-
-        <div>
-          <h4>More Links</h4>
+          <h4>Links</h4>
           <a
             href="https://www.quebec-elan.org/"
             target="_blank"
@@ -44,9 +36,20 @@ const Footer = () => {
           >
             ELAN QUEBEC
           </a>
+          <a href="http://www.celinebureau.info/">CELINE BUREAU</a>
+
+          <a href="http://thisispublicparking.com/">PUBLIC PARKING</a>
+          <h3>
+            <span>
+              <FaFacebookSquare />
+              <FaTwitterSquare />
+              <FaInstagramSquare />
+              <FaTiktok />
+            </span>
+          </h3>
         </div>
       </Upperdiv>
-      <LowerDiv>
+      {/* <LowerDiv>
         <div>
           <select name="" id="">
             <option value="" disabled={true}>
@@ -69,50 +72,42 @@ const Footer = () => {
             <FaTiktok />
           </span>
         </div>
-      </LowerDiv>
+      </LowerDiv> */}
     </FooterDiv>
   );
 };
 const FooterDiv = styled.div`
   letter-spacing: 0.3px;
   font-family: "Helvetica", sans-serif;
-
-  height: 1px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   width: 100vw;
-
-  height: 280px;
+  height: 300px;
   width: 100%;
-  border-bottom: 2px solid #0000ff;
-
-  background-color: #0000ff;
-  
   position: relative;
   bottom: 0;
   left: 0;
   right: 0;
   color: black;
+  background-image: linear-gradient(to right, white, #0000ff);
 `;
 const Upperdiv = styled.div`
   display: flex;
-  height: 20px;
+  height: 10px;
   flex-flow: row nowrap;
   justify-content: space-evenly;
   align-items: flex-start;
   margin-bottom: 20px;
-  /* border-radius: 40px; */
-  /* border: 3px solid #0000ff; */
-
+  color: black;
   /* box-shadow: 5px 10px #0000ff; */
   margin: 50px;
   padding: 10px;
   div h4 {
     color: #ffffff;
-   font-family: "Aboreto";
-   font-size: 20px;
+    font-family: "Aboreto";
+    font-size: 20px;
   }
   div a {
-    color: #cccd;
+    color: #ffffff;
     text-decoration: none;
     font-size: 14px;
     &:hover {
@@ -125,50 +120,54 @@ const Upperdiv = styled.div`
     margin: 0;
     font-size: 14px;
     &:hover {
-      color: #cccd;
+      color: #ff00ff;
     }
   }
   div {
     display: flex;
     flex-flow: column nowrap;
   }
-`;
-const LowerDiv = styled.div`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px;
-  margin: 0 40px;
-
-  div {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 10px;
-  }
-  select {
-    outline: none;
-    border: none;
-    background-color: #5c60b2;
-    color: #fff;
-    height: 28px;
-    border-radius: 5px;
-    padding: 5px;
-    letter-spacing: 0.5px;
-  }
-  span {
+  h3 {
     display: flex;
     gap: 5px;
   }
-  div a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    &:hover {
-      color: #cccd;
-    }
-  }
 `;
+// const LowerDiv = styled.div`
+//   display: flex;
+//   flex-flow: row nowrap;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding: 5px;
+//   margin: 0 40px;
+
+//   div {
+//     display: flex;
+//     flex-flow: row nowrap;
+//     justify-content: space-evenly;
+//     align-items: center;
+//     gap: 10px;
+//   }
+//   select {
+//     outline: none;
+//     border: none;
+//     /* background-color: #5c60b2; */
+//     color: #fff;
+//     height: 28px;
+//     border-radius: 5px;
+//     padding: 5px;
+//     letter-spacing: 0.5px;
+//   }
+//   span {
+//     display: flex;
+//     gap: 5px;
+//   }
+//   div a {
+//     color: white;
+//     text-decoration: none;
+//     font-size: 14px;
+//     &:hover {
+//       color: #ff00ff;
+//     }
+//   }
+
 export default Footer;

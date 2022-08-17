@@ -88,10 +88,11 @@ const HomePage = () => {
 };
 
 const PageWrapper = styled.div`
-  padding-top: 3rem;
+  padding-top: 5rem;
   display: flex;
   justify-content: center;
   margin-left: 30px;
+  margin-top:20px;
   background-image: linear-gradient(to right, gray, white);
 `;
 
