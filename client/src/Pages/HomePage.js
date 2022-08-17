@@ -92,7 +92,7 @@ const PageWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-left: 30px;
-  margin-top: 20px;
+  margin-top: 40px;
   background-image: linear-gradient(to right, gray, white);
   
 `;
