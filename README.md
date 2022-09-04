@@ -27,6 +27,7 @@ Features:
 ![](client/screenshots/ArtColtSignInPageScreenShot.jpg)
 ![](client/screenshots/SignUpPageScreenShot.jpg) 
 ![](client/screenshots/UpdateProfilePage.jpg)
+![](client/screenshots/ProfileCurrentUserScreenShot.jpg)
 
 
 
