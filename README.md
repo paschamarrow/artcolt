@@ -20,12 +20,14 @@ Features:
 
 
 
-![](client/screenshots/HomeFeedScreenShot2.jpg)
+![](client/screenshots/HomeFeedScreenShot1.jpg)
+<br/>
 ![](client/screenshots/AllUsersScreenShot1.jpg)
-
+<br/>
 ![](client/screenshots/ArtColtSignInPageScreenShot.jpg)
-
+<br/>
 ![](client/screenshots/SignUpPageScreenShot.jpg) 
+<br/>
 ![](client/screenshots/UpdateProfilePage.jpg)
 
 
