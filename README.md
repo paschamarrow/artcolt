@@ -19,8 +19,8 @@ Features:
 4) There is a featured artist/educator post that refreshes on each browser refresh of the site/home page.
 
 
-
-![](client/screenshots/HomeFeedScreenShot.jpg)
+![](client/screenshots/HomePageScreenShot1.jpg)
+![](client/screenshots/HomeFeedScreenShot2.jpg)
 ![](client/screenshots/AllUsersScreenShot1.jpg)
 ![](client/screenshots/AllUsersScreenShot2.jpg)
 ![](client/screenshots/AllUsersScreenShot3.jpg)
