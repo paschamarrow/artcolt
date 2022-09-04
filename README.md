@@ -23,6 +23,8 @@ Features:
 ![](client/screenshots/HomeFeedScreenShot1.jpg)
 <br/>
 ![](client/screenshots/AllUsersScreenShot1.jpg)
+![](client/screenshots/AllUsersScreenShot2.jpg)
+![](client/screenshots/AllUsersScreenShot3.jpg)
 <br/>
 ![](client/screenshots/ArtColtSignInPageScreenShot.jpg)
 <br/>
