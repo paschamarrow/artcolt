@@ -18,7 +18,7 @@ Features:
 3) Users can continually see new posts added to their HomePage.
 4) There is a featured artist/educator post that refreshes on each browser refresh of the site/home page.
 
-![](screenshots/HomePageScreenShot1.jpg)
+![](client/screenshots/HomePageScreenShot1.jpg)
 
 
 
