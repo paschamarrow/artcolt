@@ -20,6 +20,8 @@ Features:
 
 ![](client/screenshots/HomePageScreenShot1.jpg)
 
+![](client/screenshots/HomeFeedScreenShot2.jpg)
+
 
 
 
