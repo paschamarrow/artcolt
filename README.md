@@ -22,12 +22,12 @@ Features:
 
 ![](client/screenshots/HomeFeedScreenShot2.jpg)
 ![](client/screenshots/AllUsersScreenShot1.jpg)
-![](client/screenshots/AllUsersScreenShot2.jpg)
+
 ![](client/screenshots/ArtColtSignInPageScreenShot.jpg)
-![](client/screenshots/ProfileCropUserPostsFeedEmail.jpg)
+
 ![](client/screenshots/SignUpPageScreenShot.jpg) 
 ![](client/screenshots/UpdateProfilePage.jpg)
-![](client/screenshots/ProfileCropUserPostsFeedEmail.jpg) 
+
 
 
 
