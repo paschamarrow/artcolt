@@ -1,5 +1,5 @@
 # artcolt
-Final Project Concordia Web Dev Bootcamp 2022 - Networking Web Site for Art Educators
+Final Project Concordia Web Dev Bootcamp 2022 - Networking Web Site for Artists, Art Educators and Art Students
 
 art colt (connect/occupy/learn/teach) 
 
